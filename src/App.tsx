@@ -1,5 +1,5 @@
 import GlobalStyle from './globalStyles';
-import { Paragraph, Text } from './components';
+import { Paragraph, Text, Heading } from './components';
 
 function App() {
 
@@ -7,7 +7,8 @@ function App() {
     <>
       <GlobalStyle />
       <div className="App">
-        <h1> Hiring Process - Frontend </h1>
+        <Heading level="h1"> Hiring Process - Frontend </Heading>
+        <Heading level="h2"> Hiring Process - Frontend </Heading>
         <Text> Body text </Text>
         <Paragraph>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente iste cum voluptates culpa unde pariatur dolorum minima vel quam. Repellat facere officia modi sequi atque debitis. Commodi eaque quos qui? </Paragraph>
       </div>

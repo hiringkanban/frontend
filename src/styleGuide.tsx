@@ -17,19 +17,19 @@ export const fontWeight:any = {
 
 export const fontSize:any = {
 
-    // Use as main header on a page
+    // Use as main header on a page - H1
     main_heading: '30px', 
 
-    // Use as secondary header on a page
+    // Use as secondary header on a page - H2
     secondary_heading: '24px',
 
-    // Use after heading, profile page headings
+    // Use after heading, profile page headings - H3
     tertiary_heading: '24px',
 
-    // Use for subtitles, group name, subheading in admin
+    // Use for subtitles, group name, subheading in admin - H4
     fourth_heading: '18px',
 
-    // Use as subtitles for paragraphs
+    // Use as subtitles for paragraphs - H5
     fifth_heading: '16px',
 
     // Use for general text or labels
