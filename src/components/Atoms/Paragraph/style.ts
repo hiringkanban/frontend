@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontSize } from '../../../styleGuide';
+import { fontSize } from '../../../styles/styleGuide';
 
 interface textStyleProps {
 }

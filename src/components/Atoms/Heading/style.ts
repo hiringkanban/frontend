@@ -1,5 +1,5 @@
 
-import { fontSize } from '../../../styleGuide';
+import { fontSize } from '../../../styles/styleGuide';
 
 const headingStyle:{[key: string]: string} = {
     h1: `

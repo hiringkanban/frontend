@@ -1,11 +1,11 @@
 export const colors:any = {
-    primary: 'rgba(63, 134, 199, 1)',
+    primary: 'rgba(93, 95, 239)',
     white: 'rgba(254, 252, 252, 1)',
     gray: 'rgba(151, 151, 151, 0.5)',
     green: 'rgba(54, 159, 71, 1)',
     blue: 'rgba(10, 88, 132, 1)',
     black: 'rgba(0, 0, 0,)',
-    red: 'rgba(216, 67, 67, 1)'
+    red: 'rgba(216, 67, 67, 1)',
 }
 
 export const fontWeight:any = {
@@ -33,22 +33,22 @@ export const fontSize:any = {
     fifth_heading: '16px',
 
     // Use for general text or labels
-    text: '14px',
+    text: '0.875rem',
 
     // Use for item name, text in update
-    paragraph: '16px',
+    paragraph: '18px',
 
     // Use for subtexts
-    subtext: '12px',
+    subtext: '14px',
 
 }
 
 export const textColors:any = {
     // Use for default text color
-    primary_text_color: '',
+    primary_text_color: 'rgba(63, 134, 199, 1)',
 
     // Use when you need text with lesser importance
-    secondary_text_color: '',
+    secondary_text_color: 'rgb(83 87 104);',
 
     // Inverted text color (opposite of primary text color)
     inverted_text: '',
@@ -57,7 +57,17 @@ export const textColors:any = {
     placeholder_color: '',
 
     //Use only for links
-    links_color: ''
-
-
+    links_color: 'rgba(97, 97, 255)'
 }
+
+export const buttonVariant: {[key: string ]: string} = {
+    primary: colors.primary,
+    default: colors.white
+}
+
+export const buttonSize: any = {
+    large: '0.75em 1.5em',
+    medium: '0.5em 1em',
+    small: '0.25em 0.5em'
+}
+
