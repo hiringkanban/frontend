@@ -71,3 +71,4 @@ export const buttonSize: any = {
     small: '0.25em 0.5em'
 }
 
+export const borderRadius = '0.3em';

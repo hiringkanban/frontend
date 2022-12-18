@@ -7,7 +7,7 @@ const Button:React.FC<buttonProps> = (props) => {
         variant = 'primary',
         children,
         href,
-        size
+        size = 'medium'
     } = props;
 
     return (

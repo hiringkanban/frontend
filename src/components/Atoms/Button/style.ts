@@ -1,14 +1,19 @@
 import styled from "styled-components";
 import buttonProps from "./type";
+import { 
+    buttonVariant,
+    buttonSize,
+    borderRadius
+} from '../../../styles/styleGuide';
 
-const getStyle = (props: any): any => {
-    return props.variant;
-}
 
 const StyledButton = styled.button<buttonProps>`
-    background: ${() => getStyle(props: any => props.variant)}
-    padding: 0.6em 1.5em;
-    border-radius: 0.5em;
+    background: ${props => props.variant !== undefined ? buttonVariant[props.variant] : ''};
+    padding:${props => props.size !== undefined ? buttonSize[props.size]: ''};
+    color: #fff;
+    font-size: 1rem;
+    border-radius: ${borderRadius};
+    border: 1px solid ${props => props.variant !== undefined ? buttonVariant[props.variant] : ''};
 `;
 
 export default StyledButton;
