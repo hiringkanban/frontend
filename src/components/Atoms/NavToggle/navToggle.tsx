@@ -2,13 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 interface NabType {
-    onClick: () => void
+    onClick: () => void,
+    open: boolean
 }
 
 const StyledToggle = styled.div<{ onClick: React.MouseEventHandler<HTMLDivElement> }>`
-   /* position: absolute;
-    top: 18px;
-    right: 15px;*/
     display: block;
     cursor: pointer;
 
@@ -17,36 +15,37 @@ const StyledToggle = styled.div<{ onClick: React.MouseEventHandler<HTMLDivElemen
     }
 `;
 
-const Humburger = styled.div`
+const Humburger = styled.div<{open: boolean}>`
     content: '';
     display: block;
     width: 1.8em;
     height: 2px;
-    margin-top: 3px;
-    background-color: #000;
+    background-color: #494c58;
     transition: all ease-in-out 250ms;
+    ${props => props.open ? 'transform: rotate(45deg);' : null}
 
     &::before, ::after {
         content: '';
         display: block;
         width: 1.8em;
         height: 2px;
-        background-color: #333333;
+        background-color: #494c58;
         transition: all ease-in-out 250ms;
     }
 
     &::before {
-        transform: translateY(-10px);
+        transform: translateY(-9px);
+        ${props => props.open ? 'display: none;' : 'display: block;'}
     }
 
     &::after {
-        transform: translateY(8px);
+        transform: ${props => props.open ? 'rotate(-90deg);' : 'translateY(7px);'};
     }
 `;
 
-const NavToggle:React.FC<NabType> = ({ onClick }) => {
+const NavToggle:React.FC<NabType> = ({ onClick, open }) => {
     return <StyledToggle onClick={onClick}> 
-        <Humburger />
+        <Humburger open={open} />
     </StyledToggle>
 }
 

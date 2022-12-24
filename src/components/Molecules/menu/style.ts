@@ -3,27 +3,32 @@ import styled from 'styled-components';
 import { textColors } from '../../../styles/styleGuide';
 
 
-const StyledMenu = styled.ul<{ open?: boolean }>`
+const StyledMenu = styled.ul<{ lastChild?: string}>`
     display: flex;
     align-items: center;
     list-style: none;
 
-
     & li {
         margin-left: 2em;
+
         @media (max-width: 768px) {
-            display: ${props => props.open ? 'block' : 'none'};
-            width: 100%;
-            margin-left: 0em;
+            display: flex;
+            justify-content: center;
+            padding: 1em;
+            border-bottom: 1px solid #f1e6e6;
             text-align: center;
-            padding: 1em 0;
+            width: 80%;
+
+            &:last-child {
+                ${props => props.lastChild}
+            }
         }
 
         & a {
             font-size: 1rem;
             font-weight: 300;
             text-decoration: none;
-            color: ${textColors.secondary_text_color};
+            color: ${textColors.secondary_text_color};          
         }
     }
 

@@ -1,17 +1,13 @@
 import React from "react";
 import StyledMenu from "./style";
-
 export interface menuProps {
     items: { value: string | number | React.ReactNode, href?: string }[],
-    open?: boolean
+    lastChildStyle?: string,
 }
 
-const Menu:React.FC<menuProps> = ({ items, open }) => {
+const Menu:React.FC<menuProps> = ({ items, lastChildStyle }) => {
     return (
-        
-        <StyledMenu 
-            open={open}
-        >
+        <StyledMenu lastChild={lastChildStyle}>
             {items.map((item, index) => 
                 <li key={index}><a href={item.href}> {item.value} </a></li>
             )}

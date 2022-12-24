@@ -6,6 +6,7 @@ const StyledRow = styled.div<rowProps>`
     flex-direction: ${props => props.direction};
     justify-content: ${props => props.justify};
     align-items: center;
+    height: ${props => props.height}px;
 `;
 
  export default StyledRow;
