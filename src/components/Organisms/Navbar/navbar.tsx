@@ -21,7 +21,7 @@ const NavBar = () => {
 
     const rightMenu = [
         { value: 'Sign In', href: '#' },
-        { value: <Button> Try it for free </Button> }
+        { value: <Button> Try it for free </Button>, href:"www" }
     ];
 
     return (

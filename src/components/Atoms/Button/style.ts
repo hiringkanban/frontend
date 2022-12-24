@@ -14,6 +14,7 @@ const StyledButton = styled.button<buttonProps>`
     font-size: 1rem;
     border-radius: ${borderRadius};
     border: 1px solid ${props => props.variant !== undefined ? buttonVariant[props.variant] : ''};
+    cursor: pointer;
 `;
 
 export default StyledButton;
