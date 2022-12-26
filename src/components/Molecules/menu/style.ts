@@ -18,6 +18,7 @@ const StyledMenu = styled.ul<{ lastChild?: string}>`
             border-bottom: 1px solid #f1e6e6;
             text-align: center;
             width: 80%;
+            margin-left: 0;
 
             &:last-child {
                 ${props => props.lastChild}
@@ -33,7 +34,8 @@ const StyledMenu = styled.ul<{ lastChild?: string}>`
     }
 
     @media (max-width: 768px) {
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
 `;
 
