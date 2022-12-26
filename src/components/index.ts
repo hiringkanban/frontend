@@ -7,7 +7,7 @@ export { default as Menu } from './Molecules/menu';
 export { default as Button } from './Atoms/Button';
 export { default as Logo } from './Atoms/Logo';
 export { default as NavBar } from './Organisms/Navbar';
-export { default as Row } from './Atoms/Row';
+export { default as FlexBox } from './Atoms/Flexbox';
 export { default as NavToggle } from './Atoms/NavToggle';
 export { default as HideOn } from './Atoms/HideOn';
 export { default as FlexItem } from './Atoms/FlexItem';
