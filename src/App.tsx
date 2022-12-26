@@ -1,5 +1,11 @@
 import GlobalStyle from './styles/globalStyles';
-import { NavBar } from './components';
+import { 
+  Input,
+  NavBar,
+  Container,
+  Box
+} from './components';
+import { useState } from 'react';
 
 function App() {
 
@@ -8,6 +14,11 @@ function App() {
       <GlobalStyle />
       <div className="App">
         <NavBar />
+        <Container>
+          <Box width="30%">
+            <Input id="email" type="password" name="Email" placeholder="Email" onChange={() => console.log('')}/>
+          </Box>
+        </Container>
       </div>
     </>
   )
