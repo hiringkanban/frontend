@@ -1,4 +1,4 @@
-export const colors:any = {
+export const colors = {
     primary: 'rgba(93, 95, 239)',
     white: 'rgba(254, 252, 252, 1)',
     gray: 'rgba(151, 151, 151, 0.5)',
@@ -6,6 +6,13 @@ export const colors:any = {
     blue: 'rgba(10, 88, 132, 1)',
     black: 'rgba(0, 0, 0,)',
     red: 'rgba(216, 67, 67, 1)',
+}
+
+export const status:{[key:string]: string} = {
+    default: colors.primary,
+    success: colors.green,
+    info: colors.blue,
+    danger: colors.red
 }
 
 export const fontWeight:any = {
