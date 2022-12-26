@@ -3,7 +3,8 @@ import {
   Input,
   NavBar,
   Container,
-  Box
+  Box,
+  Form
 } from './components';
 import { useState } from 'react';
 
@@ -15,9 +16,7 @@ function App() {
       <div className="App">
         <NavBar />
         <Container>
-          <Box width="30%">
-            <Input id="email" type="password" name="Email" placeholder="Email" onChange={() => console.log('')}/>
-          </Box>
+          
         </Container>
       </div>
     </>

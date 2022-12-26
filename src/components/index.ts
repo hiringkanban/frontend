@@ -12,3 +12,4 @@ export { default as NavToggle } from './Atoms/NavToggle';
 export { default as HideOn } from './Atoms/HideOn';
 export { default as FlexItem } from './Atoms/FlexItem';
 export { default as Input } from './Atoms/Input';
+export { default as Form } from './Molecules/Form';
