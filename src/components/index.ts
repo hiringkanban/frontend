@@ -16,3 +16,4 @@ export { default as FlexItem } from './Atoms/FlexItem';
 export { default as Input } from './Atoms/Input';
 export { default as Form } from './Molecules/Form';
 export { default as SignIn } from './Organisms/Signin';
+export { default as Signup } from './Organisms/Signup';
