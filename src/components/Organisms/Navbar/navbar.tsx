@@ -27,7 +27,7 @@ const NavBar = () => {
         <StyledNav>
             <HideOn>
                 <Container>
-                    <FlexBox>
+                    <FlexBox alignItem="center">
                         <Logo />
                         <FlexItem flex={1}>
                             <Menu items={leftMenu} />
