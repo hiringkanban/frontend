@@ -3,18 +3,24 @@ import buttonProps from "./type";
 import { 
     buttonVariant,
     buttonSize,
-    borderRadius
+    borderRadius,
+    colors
 } from '../../../styles/styleGuide';
 
 
 const StyledButton = styled.button<buttonProps>`
-    background: ${props => props.variant !== undefined ? buttonVariant[props.variant] : ''};
+    
     padding:${props => props.size !== undefined ? buttonSize[props.size]: ''};
-    color: #fff;
+    color: ${props => props.variant === 'default' ? colors.black: '#fff'};
     font-size: 1rem;
+    font-weight: 300;
     border-radius: ${borderRadius};
-    border: 1px solid ${props => props.variant !== undefined ? buttonVariant[props.variant] : ''};
+    ${props => props.variant !== undefined ? buttonVariant[props.variant] : ''}
     cursor: pointer;
+
+    :hover {
+        opacity: 0.9;
+    }
 `;
 
 export default StyledButton;

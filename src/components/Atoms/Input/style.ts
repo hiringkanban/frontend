@@ -10,7 +10,8 @@ const StyledInput = styled.input<InputStyleProps>`
     width: 100%;
     height: 3em;
     padding: 0.5em;
-    border: 2px solid ${props=> props.status ? status[props.status] : status['default'] };
+    margin-bottom: 1.2em;
+    border: 1px solid ${props=> props.status ? status[props.status] : status['default'] };
     border-radius: 6px;
     :focus {
         outline: none;

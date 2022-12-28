@@ -13,7 +13,9 @@ const FlexBox:React.FC<flexProps> = (props) => {
         flexWrap,
         flexFlow,
         gap,
-        height
+        height,
+        margin,
+        padding
     } = props;
     
     return (
@@ -26,6 +28,8 @@ const FlexBox:React.FC<flexProps> = (props) => {
             flexFlow={flexFlow}
             gap={gap}
             height={height}
+            margin={margin}
+            padding={padding}
         >
             {children} 
         </StyledFlexBox>
