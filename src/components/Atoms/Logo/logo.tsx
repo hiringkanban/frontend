@@ -1,8 +1,9 @@
 import React from "react";
-import StyledLogo from "./style";
+import { Link } from "react-router-dom";
+import logo from '../../../assets/react.svg';
 
 const Logo = () => {
-   return <StyledLogo>EasyRecruiters </StyledLogo>
+   return <Link to="/"><img src={logo}/></Link>
 }
 
 export default Logo;

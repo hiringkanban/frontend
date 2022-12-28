@@ -42,7 +42,7 @@ const SignIn = () => {
             </FlexBox>
             <Text align='center' weight='300'>
                 Don't have an account yet?
-                <Link href="#">Sign up</Link>
+                <Link href="/signup">Sign up</Link>
             </Text>
         </StyledSignIn>
     )
