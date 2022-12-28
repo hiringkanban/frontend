@@ -1,10 +1,12 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import GlobalStyle from './styles/globalStyles';
 import { 
-  NavBar,
-  Container,
-  SignIn,
+  Home,
+  Signin,
   Signup
-} from './components';
+} from './components/Pages';
 
 function App() {
 
@@ -12,10 +14,13 @@ function App() {
     <>
       <GlobalStyle />
       <div className="App">
-        <NavBar />
-        <Container>
-          <Signup />
-        </Container>
+        <BrowserRouter>
+          <Routes>
+              <Route index element={<Home />} />
+              <Route path="signin" element={<Signin />} />
+              <Route path="signup" element={<Signup />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   )

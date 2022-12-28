@@ -8,7 +8,6 @@ import {
     Link,
     FlexBox,
     Seperator,
-    Paragraph
 } from '../..';
 import StyledSignup from './style';
 
@@ -46,7 +45,7 @@ const Signup = () => {
             </FlexBox>
             <Text align='center' weight='300'>
                 Already have an account?
-                <Link href="#">Sign in</Link>
+                <Link href="/signin">Sign in</Link>
             </Text>
         </StyledSignup>
     )

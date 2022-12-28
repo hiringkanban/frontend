@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 const StyledSignIn = styled.div`
-    width: 25%;
+    width: 30%;
     margin: 0 auto;
     margin-top: 7.5em;
 
@@ -27,6 +27,7 @@ const StyledSignIn = styled.div`
 
     @media (max-width: 768px) {
         width: 80%;
+        margin-top: 1em;
     }
 `;
 
