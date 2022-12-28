@@ -1,12 +1,15 @@
 import React from "react";
 import { StyledText } from './style';
 
-interface textProps {
-    children: React.ReactNode
-}
+import { textProps } from "./type";
 
-const Text:React.FC<textProps> = ({children}) => {
-    return <StyledText> {children} </StyledText>
+const Text:React.FC<textProps> = ({children, align, weight}) => {
+    return <StyledText
+        align={align}
+        weight={weight}
+    >
+        {children} 
+    </StyledText>
 }
 
 export default Text;

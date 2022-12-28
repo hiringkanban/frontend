@@ -1,10 +1,8 @@
 import GlobalStyle from './styles/globalStyles';
 import { 
-  Input,
   NavBar,
   Container,
-  Box,
-  Form
+  SignIn
 } from './components';
 import { useState } from 'react';
 
@@ -16,7 +14,7 @@ function App() {
       <div className="App">
         <NavBar />
         <Container>
-          
+          <SignIn />
         </Container>
       </div>
     </>

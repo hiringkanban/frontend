@@ -1,6 +1,6 @@
 export const colors = {
     primary: 'rgba(93, 95, 239)',
-    white: 'rgba(254, 252, 252, 1)',
+    white: '#fff',
     gray: 'rgba(151, 151, 151, 0.5)',
     green: 'rgba(54, 159, 71, 1)',
     blue: 'rgba(10, 88, 132, 1)',
@@ -40,7 +40,7 @@ export const fontSize:any = {
     fifth_heading: '16px',
 
     // Use for general text or labels
-    text: '0.875rem',
+    text: '1rem',
 
     // Use for item name, text in update
     paragraph: '18px',
@@ -68,8 +68,14 @@ export const textColors:any = {
 }
 
 export const buttonVariant: {[key: string ]: string} = {
-    primary: colors.primary,
-    default: colors.white
+    primary: `
+        background: ${colors.primary};
+        border: 1px solid ${colors.primary};
+    `,
+    default: `
+        background: ${colors.white};
+        border: 1px solid ${colors.gray} ;
+    `
 }
 
 export const buttonSize: any = {

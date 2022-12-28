@@ -9,5 +9,7 @@ export default interface flexboxProps {
     flexFlow?: string,
     gap?:string,
     height?: number,
+    margin?: string,
+    padding?: string,
     children: React.ReactNode
 }
