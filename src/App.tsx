@@ -2,9 +2,9 @@ import GlobalStyle from './styles/globalStyles';
 import { 
   NavBar,
   Container,
-  SignIn
+  SignIn,
+  Signup
 } from './components';
-import { useState } from 'react';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <NavBar />
         <Container>
-          <SignIn />
+          <Signup />
         </Container>
       </div>
     </>
