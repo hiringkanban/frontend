@@ -1,17 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import StyledMenu from "./style";
-export interface menuProps {
-    items: { value: string | number | React.ReactNode, href: string }[],
-    lastChildStyle?: string,
-}
+import { menuProps } from "./type";
 
-const Menu:React.FC<menuProps> = ({ items, lastChildStyle }) => {
+const Menu:React.FC<menuProps> = (props) => {
+
+    const { items, lastChildStyle, stacked } = props;
+
     return (
-        <StyledMenu lastChild={lastChildStyle}>
-            {items.map((item, index) => 
+        <StyledMenu 
+            lastChildStyle={lastChildStyle}
+            stacked={stacked}
+        >
+            {items !== undefined && items.map((item, index) => 
                 <li key={index}>
+                    {item.icon}
                     <Link to={item.href}> {item.value} </Link>
                 </li>
             )}

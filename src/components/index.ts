@@ -1,11 +1,10 @@
 export { default as Container } from './Atoms/Container';
-export { default as Box } from './Atoms/Box';
+export { default as Section } from './Atoms/Section';
 export { default as Text } from './Atoms/Text';
 export { default as Link } from './Atoms/Link';
 export { default as Seperator } from './Atoms/Seperator';
 export { default as Paragraph } from './Atoms/Paragraph';
 export { default as Heading } from './Atoms/Heading';
-export { default as Menu } from './Molecules/menu';
 export { default as Button } from './Atoms/Button';
 export { default as Logo } from './Atoms/Logo';
 export { default as NavBar } from './Organisms/Navbar';
@@ -17,3 +16,5 @@ export { default as Input } from './Atoms/Input';
 export { default as Form } from './Molecules/Form';
 export { default as SignIn } from './Organisms/Signin';
 export { default as Signup } from './Organisms/Signup';
+export { default as SideBar } from './Organisms/Sidebar';
+export { default as Menu } from './Molecules/Menu';
