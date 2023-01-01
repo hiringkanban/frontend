@@ -10,7 +10,7 @@ import Menu from "../../Molecules/Menu";
 import { StyledNav, MobileNav, MobileNavList} from './style';
 import { navbarProps } from "./type";
 
-const NavBar:React.FC<navbarProps> = ({leftMenu, rightMenu}) => {
+const NavBar:React.FC<navbarProps> = ({leftMenu, rightMenu, logo}) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -18,7 +18,7 @@ const NavBar:React.FC<navbarProps> = ({leftMenu, rightMenu}) => {
             <HideOn>
                 <Container>
                     <FlexBox alignItem="center">
-                        <Logo />
+                        {logo}
                         <FlexItem flex={1}>
                             <Menu items={leftMenu} />
                         </FlexItem>

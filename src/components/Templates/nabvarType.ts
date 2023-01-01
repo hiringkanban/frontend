@@ -1,5 +1,3 @@
-import React from "react";
-
 type menuT = {
     value: string | number | React.ReactNode,
     href: string,
@@ -11,4 +9,3 @@ export interface navbarProps {
     rightMenu?: menuT,
     logo?: React.ReactNode
 }
-

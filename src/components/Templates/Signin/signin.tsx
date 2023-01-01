@@ -6,10 +6,12 @@ import {
     Container
 } from '../../index';
 
-const SigninTemplate = () => {
+import { navbarProps } from '../nabvarType';
+
+const SigninTemplate: React.FC<navbarProps> = ({ leftMenu, rightMenu, logo }) => {
     return (
         <>
-            <NavBar />
+            <NavBar leftMenu={leftMenu} rightMenu={rightMenu} logo={logo}/>
             <Container> 
                 <SignIn />
             </Container>

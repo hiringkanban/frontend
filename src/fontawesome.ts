@@ -8,9 +8,9 @@ import {
     faSun,
     faLifeRing
 } from '@fortawesome/free-regular-svg-icons';
-import {
-    faGoogle,
-} from '@fortawesome/free-brands-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
+
 
 library.add(
   faClipboard,
@@ -20,5 +20,6 @@ library.add(
   faIdCard,
   faBuilding,
   faSun,
-  faLifeRing
+  faLifeRing,
+  faPowerOff
 );

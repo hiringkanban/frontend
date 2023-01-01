@@ -1,25 +1,15 @@
 import {
     NavBar,
-    Container,
-    Button
+    Container
 } from '../../index';
 
-const HomeTemplate = () => {
+import { navbarProps } from '../nabvarType';
 
-    const leftMenu = [
-        { value: 'Features', href: '#' },
-        { value: 'Pricing', href: '#' },
-        { value: 'Blog', href: '#' },
-    ];
-
-    const rightMenu = [
-        { value: 'Sign In', href: '/signin' },
-        { value: <Button> Try it for free </Button>, href:"/signup" }
-    ];
+const HomeTemplate: React.FC<navbarProps> = ({ leftMenu, rightMenu, logo }) => {
     
     return (
         <>
-            <NavBar leftMenu={leftMenu} rightMenu={rightMenu} />
+            <NavBar leftMenu={leftMenu} rightMenu={rightMenu} logo={logo} />
             <Container>  
                 <h1>Home page</h1>
             </Container>
