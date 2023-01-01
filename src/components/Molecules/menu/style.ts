@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { textColors } from '../../../styles/styleGuide';
+import { menuProps } from './type';
 
-
-const StyledMenu = styled.ul<{ lastChild?: string}>`
+const StyledMenu = styled.ul<menuProps>`
     display: flex;
     align-items: center;
     list-style: none;
-
+    flex-direction: ${props => props.stacked ? 'column' : 'row'};
+    
     & li {
         margin-left: 2em;
 
@@ -21,7 +22,7 @@ const StyledMenu = styled.ul<{ lastChild?: string}>`
             margin-left: 0;
 
             &:last-child {
-                ${props => props.lastChild}
+                ${props => props.lastChildStyle}
             }
         }
 

@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import GlobalStyle from './styles/globalStyles';
+
 import { 
+  Admin,
   Home,
   Signin,
   Signup
@@ -19,6 +20,7 @@ function App() {
               <Route index element={<Home />} />
               <Route path="signin" element={<Signin />} />
               <Route path="signup" element={<Signup />} />
+              <Route path="admin" element={<Admin />} />
           </Routes>
         </BrowserRouter>
       </div>

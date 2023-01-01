@@ -1,34 +1,24 @@
 import React, { useState } from "react";
 import Logo from '../../Atoms/Logo';
 import Button from '../../Atoms/Button';
-import Menu from '../../Molecules/menu';
 import Container from "../../Atoms/Container";
 import FlexBox from "../../Atoms/Flexbox";
 import NavToggle from '../../Atoms/NavToggle';
 import HideOn from "../../Atoms/HideOn";
 import FlexItem from "../../Atoms/FlexItem";
+import Menu from "../../Molecules/Menu";
 import { StyledNav, MobileNav, MobileNavList} from './style';
+import { navbarProps } from "./type";
 
-const NavBar = () => {
+const NavBar:React.FC<navbarProps> = ({leftMenu, rightMenu, logo}) => {
     const [open, setOpen] = useState(false);
-
-    const leftMenu = [
-        { value: 'Features', href: '#' },
-        { value: 'Pricing', href: '#' },
-        { value: 'Blog', href: '#' },
-    ];
-
-    const rightMenu = [
-        { value: 'Sign In', href: '/signin' },
-        { value: <Button> Try it for free </Button>, href:"/signup" }
-    ];
 
     return (
         <StyledNav>
             <HideOn>
                 <Container>
                     <FlexBox alignItem="center">
-                        <Logo />
+                        {logo}
                         <FlexItem flex={1}>
                             <Menu items={leftMenu} />
                         </FlexItem>

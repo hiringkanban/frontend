@@ -3,11 +3,13 @@ import {
     Container
 } from '../../index';
 
+import { navbarProps } from '../nabvarType';
 
-const HomeTemplate = () => {
+const HomeTemplate: React.FC<navbarProps> = ({ leftMenu, rightMenu, logo }) => {
+    
     return (
         <>
-            <NavBar />
+            <NavBar leftMenu={leftMenu} rightMenu={rightMenu} logo={logo} />
             <Container>  
                 <h1>Home page</h1>
             </Container>
