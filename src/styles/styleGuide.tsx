@@ -2,6 +2,7 @@ export const colors = {
     primary: 'rgba(93, 95, 239)',
     white: '#fff',
     gray: 'rgba(151, 151, 151, 0.5)',
+    lightGray: '#f5f5f5',
     green: 'rgba(54, 159, 71, 1)',
     blue: 'rgba(10, 88, 132, 1)',
     darkBlue: 'rgba(41, 47, 76, 1)',
