@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Text from "../../Atoms/Paragraph/Paragraph";
 import Button from "../../Atoms/Button";
 import { selectProps } from "./type";
@@ -25,6 +25,10 @@ const Select:React.FC<selectProps> = (props) => {
         handleChange(value);
         setShow(false);
     }
+
+    useEffect(() => {
+        
+    }, []);
 
     return (
         <>

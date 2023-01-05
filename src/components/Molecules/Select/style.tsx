@@ -19,7 +19,7 @@ export const OptionBody = styled.div<widthT>`
     top: 42px;
     width: ${props => props.width};
     background-color: ${colors.white};
-    border: 1px solid ${colors.lightGray};
+    border: 1px solid rgb(0, 0, 0, 0.15);
     border-radius: 6px;
 
     & ul {
