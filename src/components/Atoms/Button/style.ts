@@ -9,13 +9,14 @@ import {
 
 
 const StyledButton = styled.button<buttonProps>`
-    
+    width: ${props => props.width};
     padding:${props => props.size !== undefined ? buttonSize[props.size]: ''};
     color: ${props => props.variant === 'default' ? colors.black: '#fff'};
     font-size: 1rem;
     font-weight: 300;
     border-radius: ${borderRadius};
-    ${props => props.variant !== undefined ? buttonVariant[props.variant] : ''}
+    ${props => props.variant !== undefined ? buttonVariant[props.variant] : ''};
+    border: ${props => props.noborder ? 'none' : ''};
     cursor: pointer;
 
     :hover {
