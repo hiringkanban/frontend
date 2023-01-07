@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import StyledButton from "./style";
 import buttonProps from "./type";
 
-const Button:React.FC<buttonProps> = (props) => {
+const Button: any = forwardRef((props: buttonProps, ref: React.Ref<HTMLButtonElement>) => {
     const { 
         variant = 'primary',
         children,
@@ -10,6 +10,8 @@ const Button:React.FC<buttonProps> = (props) => {
         size = 'medium',
         width,
         noborder,
+        leftIcon,
+        rightIcon,
         onClick
     } = props;
 
@@ -21,11 +23,14 @@ const Button:React.FC<buttonProps> = (props) => {
             href={href}
             noborder={noborder}
             onClick={onClick}
+            ref={ref}
         >
-         {children} 
+            {leftIcon}
+            {children}
+            {rightIcon}
         </StyledButton>
     )
-}
+})
 
 export default Button;
 

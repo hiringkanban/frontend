@@ -3,7 +3,6 @@ export { default as Section } from './Atoms/Section';
 export { default as Text } from './Atoms/Text';
 export { default as Link } from './Atoms/Link';
 export { default as Seperator } from './Atoms/Seperator';
-export { default as Paragraph } from './Atoms/Paragraph';
 export { default as Heading } from './Atoms/Heading';
 export { default as Button } from './Atoms/Button';
 export { default as Logo } from './Atoms/Logo';

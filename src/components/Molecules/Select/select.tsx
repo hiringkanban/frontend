@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import Text from "../../Atoms/Paragraph/Paragraph";
+import Text from "../../Atoms/Text";
 import Button from "../../Atoms/Button";
 import { selectProps, valueT } from "./type";
 import { 
@@ -14,12 +14,15 @@ const Select:React.FC<selectProps> = (props) => {
         options,
         width,
         selectedValue,
+        leftIcon,
+        rightIcon,
         handleChange,
     } = props;
 
     const [show, setShow] = useState(false);
 
     const selectRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
 
     const handleClick = (value: valueT) => {
         handleChange(value);
@@ -38,6 +41,7 @@ const Select:React.FC<selectProps> = (props) => {
         return () => document.addEventListener('click', onClickoutside);
     }, [selectRef]);
 
+
     return (
         <>
             <StyledSelect width={width} ref={selectRef}>
@@ -46,11 +50,17 @@ const Select:React.FC<selectProps> = (props) => {
                     variant="default"
                     onClick={() => setShow(!show)}
                     noborder
+                    leftIcon={leftIcon}
+                    rightIcon={rightIcon}
+                    ref={buttonRef}
                 >
                     <Text>{selectedValue}</Text>
                 </Button>
                 { show && 
-                <OptionBody width={width}>
+                <OptionBody 
+                    width={width}
+                    justifyTop={buttonRef.current && buttonRef.current.offsetHeight}
+                >
                     <ul>
                         {options.map(({label, value}) => 
                             <Li 
