@@ -1,3 +1,5 @@
+import React from "react";
+
 export type valueT = string | number;
 
 export interface selectProps {
@@ -7,5 +9,7 @@ export interface selectProps {
     }[],
     width: string,
     selectedValue: valueT,
+    leftIcon?: React.ReactNode,
+    rightIcon?: React.ReactNode,
     handleChange: React.Dispatch<React.SetStateAction<valueT>>
 }

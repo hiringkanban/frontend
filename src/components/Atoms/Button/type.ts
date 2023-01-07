@@ -5,5 +5,7 @@ export default interface buttonProps {
     width?: string,
     noborder?: boolean,
     children: React.ReactNode,
+    leftIcon?: React.ReactNode,
+    rightIcon?: React.ReactNode,
     onClick?: () => void
 }

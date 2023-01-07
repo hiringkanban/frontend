@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { colors } from "../../../styles/styleGuide";
 
 type widthT = {
-    width: string
+    width: string,
+    justifyTop?: number | null
 }
 
 export const StyledSelect = styled.div<widthT>`
@@ -16,7 +17,7 @@ export const StyledSelect = styled.div<widthT>`
 
 export const OptionBody = styled.div<widthT>`
     position: absolute;
-    top: 42px;
+    top: ${props => props.justifyTop ? props.justifyTop + 3 : 0 }px;
     width: ${props => props.width};
     background-color: ${colors.white};
     border: 1px solid rgb(0, 0, 0, 0.15);
@@ -28,7 +29,7 @@ export const OptionBody = styled.div<widthT>`
 `;
 
 export const Li = styled.li<{isSelected: boolean}>`
-    padding: 7px;
+    padding: 5px 10px;
     background-color: ${props => props.isSelected ? colors.primary : ''};
     color: ${props => props.isSelected ? colors.white : colors.black };
     cursor: pointer;

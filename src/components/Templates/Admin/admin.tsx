@@ -8,6 +8,7 @@ import FlexBox from "../../Atoms/Flexbox/flexbox";
 import { columnsT } from "../../Molecules/Table/type";
 import Select from "../../Molecules/Select";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const cols: columnsT[] = [
     {
@@ -121,9 +122,9 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
             <Section left="220px">
                 <NavBar leftMenu={leftMenu} rightMenu={rightMenu}/>
                 <Container>
-                    <FlexBox margin="50px 0 20px 0" direction="column">
+                    <FlexBox margin="50px 0 20px 0" justify="flex-end" gap="10px">
                         <Select 
-                            width="200px"
+                            width="150px"
                             options={[
                                 { label: 'option 01', value: 'value 01' },
                                 { label: 'option 02', value: 'value 02' },
@@ -132,6 +133,19 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                             ]}
                             selectedValue={value}
                             handleChange={setValue}
+                            rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
+                        />
+                        <Select 
+                            width="150px"
+                            options={[
+                                { label: 'option 01', value: 'value 01' },
+                                { label: 'option 02', value: 'value 02' },
+                                { label: 'option 03', value: 'value 03' },
+                                { label: 'option 04', value: 'value 04' }
+                            ]}
+                            selectedValue={value}
+                            handleChange={setValue}
+                            rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
                         />
                     </FlexBox>
                     <Table columns={cols} dataSource={data}/>
