@@ -6,6 +6,8 @@ import { navbarProps } from '../nabvarType';
 import Container from "../../Atoms/Container";
 import FlexBox from "../../Atoms/Flexbox/flexbox";
 import { columnsT } from "../../Molecules/Table/type";
+import Select from "../../Molecules/Select";
+import { useState } from "react";
 
 const cols: columnsT[] = [
     {
@@ -111,15 +113,28 @@ const data = [
 
 const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
 
+    const [value, setValue] = useState<string|number>('Sory by');
+
     return (
         <>
             <SideBar />
             <Section left="220px">
                 <NavBar leftMenu={leftMenu} rightMenu={rightMenu}/>
                 <Container>
-                    <FlexBox margin="50px 0">
-                        <Table columns={cols} dataSource={data}/>
+                    <FlexBox margin="50px 0 20px 0" direction="column">
+                        <Select 
+                            width="200px"
+                            options={[
+                                { label: 'option 01', value: 'value 01' },
+                                { label: 'option 02', value: 'value 02' },
+                                { label: 'option 03', value: 'value 03' },
+                                { label: 'option 04', value: 'value 04' }
+                            ]}
+                            selectedValue={value}
+                            handleChange={setValue}
+                        />
                     </FlexBox>
+                    <Table columns={cols} dataSource={data}/>
                 </Container>
             </Section>  
         </>
