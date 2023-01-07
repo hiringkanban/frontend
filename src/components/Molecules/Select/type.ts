@@ -1,4 +1,4 @@
-type valueT = string | number;
+export type valueT = string | number;
 
 export interface selectProps {
     options: {
