@@ -9,6 +9,7 @@ const Button: any = forwardRef((props: buttonProps, ref: React.Ref<HTMLButtonEle
         href,
         size = 'medium',
         width,
+        margin,
         noborder,
         leftIcon,
         rightIcon,
@@ -22,6 +23,7 @@ const Button: any = forwardRef((props: buttonProps, ref: React.Ref<HTMLButtonEle
             size={size}
             href={href}
             noborder={noborder}
+            margin={margin}
             onClick={onClick}
             ref={ref}
         >

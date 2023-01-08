@@ -10,7 +10,7 @@ import {
     
 } from '@fortawesome/free-regular-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { faPowerOff, faChevronDown, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faPowerOff, faChevronDown, faFilter, faClose } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faClipboard,
@@ -23,5 +23,6 @@ library.add(
   faLifeRing,
   faPowerOff,
   faChevronDown,
-  faFilter
+  faFilter,
+  faClose
 );

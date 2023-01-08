@@ -14,6 +14,7 @@ const StyledButton = styled.button<buttonProps>`
     justify-content: space-between;
     width: ${props => props.width};
     padding:${props => props.size !== undefined ? buttonSize[props.size]: ''};
+    margin: ${props => props.margin};
     color: ${props => props.variant === 'default' ? colors.black: '#fff'};
     font-size: 0.875rem;
     font-weight: 300;

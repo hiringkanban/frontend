@@ -10,6 +10,8 @@ import Select from "../../Molecules/Select";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Badge from "../../Atoms/Badge";
+import Button from "../../Atoms/Button";
+import Modal from "../../Molecules/Modal";
 
 type dataT = { 
     key: string,
@@ -35,7 +37,7 @@ const cols: columnsT[] = [
         key: 'skills',
         render:(_, {skills}) => (
             <>
-                {skills && (skills as any[]).map((item) => <Badge bg='danger'>{item}</Badge>)}
+                {skills && (skills as any[]).map((item) => <Badge bg='info'>{item}</Badge>)}
             </>
         )
     },
@@ -133,6 +135,11 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
 
     const [value, setValue] = useState<string|number>('Sory by');
     const [value1, setValue1] = useState<string|number>('Sory by');
+    const [open, setOpen] = useState(false);
+
+    const handleCancel = () => {
+        setOpen(false)
+    }
 
     return (
         <>
@@ -141,6 +148,14 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                 <NavBar leftMenu={leftMenu} rightMenu={rightMenu}/>
                 <Container>
                     <FlexBox margin="50px 0 20px 0" justify="flex-end" gap="10px">
+                        <Button onClick={() => setOpen(!open)}> open modal </Button>
+                        <Modal 
+                            title="Modal title" 
+                            open={open}
+                            onCancel={handleCancel}
+                        >
+                            Modal content
+                        </Modal>
                         <Select 
                             width="120px"
                             options={[
