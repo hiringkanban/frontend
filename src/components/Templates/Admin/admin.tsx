@@ -9,6 +9,18 @@ import { columnsT } from "../../Molecules/Table/type";
 import Select from "../../Molecules/Select";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Badge from "../../Atoms/Badge";
+
+type dataT = { 
+    key: string,
+    title: string,
+    skills: string[],
+    experiences: string,
+    salary: number,
+    date: string,
+    status: string,
+    actions: string
+}
 
 const cols: columnsT[] = [
     {
@@ -21,6 +33,11 @@ const cols: columnsT[] = [
         title: 'Skills',
         dataIndex: 'skills',
         key: 'skills',
+        render:(_, {skills}) => (
+            <>
+                {skills && (skills as any[]).map((item) => <Badge bg='danger'>{item}</Badge>)}
+            </>
+        )
     },
     {
         title: 'Experiences',
@@ -49,13 +66,13 @@ const cols: columnsT[] = [
     },
 ];
 
-const data = [
+const data : dataT[] = [
     {
         key: '1',
         title: 'Team Lead',
-        skills: 'Java, C++',
+        skills: ['Java', 'C++'],
         experiences: '5 years',
-        salary: '32000$ - Yearly',
+        salary: 15000,
         date: 'October 05, 2019',
         status: 'Active',
         actions: ''
@@ -63,7 +80,7 @@ const data = [
     {
         key: '1',
         title: 'Backend Developer',
-        skills: 'Java, C++',
+        skills: ['PHP', 'C++'],
         experiences: '02 years',
         salary: 15000,
         date: 'October 05, 2019',
@@ -73,7 +90,7 @@ const data = [
     {
         key: '1',
         title: 'Backend Developer',
-        skills: 'Java, C++',
+        skills: ['PHP', 'C++'],
         experiences: '02 years',
         salary: 15000,
         date: 'October 05, 2019',
@@ -83,7 +100,7 @@ const data = [
     {
         key: '1',
         title: 'Backend Developer',
-        skills: 'Java, C++',
+        skills: ['PHP', 'C++'],
         experiences: '02 years',
         salary: 15000,
         date: 'October 05, 2019',
@@ -93,7 +110,7 @@ const data = [
     {
         key: '1',
         title: 'Backend Developer',
-        skills: 'Java, C++',
+        skills: ['PHP', 'C++'],
         experiences: '02 years',
         salary: 15000,
         date: 'October 05, 2019',
@@ -103,7 +120,7 @@ const data = [
     {
         key: '1',
         title: 'Backend Developer',
-        skills: 'Java, C++',
+        skills: ['PHP', 'C++'],
         experiences: '02 years',
         salary: 15000,
         date: 'October 05, 2019',
@@ -115,6 +132,7 @@ const data = [
 const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
 
     const [value, setValue] = useState<string|number>('Sory by');
+    const [value1, setValue1] = useState<string|number>('Sory by');
 
     return (
         <>
@@ -124,15 +142,15 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                 <Container>
                     <FlexBox margin="50px 0 20px 0" justify="flex-end" gap="10px">
                         <Select 
-                            width="150px"
+                            width="120px"
                             options={[
                                 { label: 'option 01', value: 'value 01' },
                                 { label: 'option 02', value: 'value 02' },
                                 { label: 'option 03', value: 'value 03' },
                                 { label: 'option 04', value: 'value 04' }
                             ]}
-                            selectedValue={value}
-                            handleChange={setValue}
+                            selectedValue={value1}
+                            handleChange={setValue1}
                             rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
                         />
                         <Select 

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { TableCell } from "./style";
 import { rowCellprops } from "./type";
