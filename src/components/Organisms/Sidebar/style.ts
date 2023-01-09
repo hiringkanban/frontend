@@ -16,6 +16,10 @@ export const StyledSideBar = styled.div`
     width: 220px;
     background-color: ${colors.darkBlue};
 
+    @media (max-width: 768px) {
+        width: 50px;
+    }
+
     li {
         margin: 0;
         width: 100%;
