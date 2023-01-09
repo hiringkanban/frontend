@@ -36,7 +36,11 @@ export const MobileNavList = styled.div`
     left: 0;
     background-color: white;
     transition: all ease-in-out 250ms;
+    z-index: 20;
 
+    & svg {
+        color: #000 !important;
+    }
 `;
 
 export default StyledNav;

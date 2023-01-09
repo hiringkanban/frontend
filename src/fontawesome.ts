@@ -7,10 +7,15 @@ import {
     faIdCard,
     faSun,
     faLifeRing,
-    
 } from '@fortawesome/free-regular-svg-icons';
+import { 
+  faPowerOff,
+  faChevronDown,
+  faFilter,
+  faClose,
+  faBars
+} from '@fortawesome/free-solid-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { faPowerOff, faChevronDown, faFilter, faClose } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faClipboard,
@@ -24,5 +29,6 @@ library.add(
   faPowerOff,
   faChevronDown,
   faFilter,
-  faClose
+  faClose,
+  faBars
 );

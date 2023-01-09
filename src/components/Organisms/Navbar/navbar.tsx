@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Logo from '../../Atoms/Logo';
-import Button from '../../Atoms/Button';
 import Container from "../../Atoms/Container";
 import FlexBox from "../../Atoms/Flexbox";
 import NavToggle from '../../Atoms/NavToggle';
@@ -31,8 +29,7 @@ const NavBar:React.FC<navbarProps> = ({leftMenu, rightMenu, logo}) => {
             </HideOn>
             <MobileNav>
                 <Container>
-                    <FlexBox justify="space-between" alignItem="center" height={72}>
-                        <Logo />
+                    <FlexBox justify="end" alignItem="center" height={72}>
                         <NavToggle onClick={() => setOpen(!open)} open={open} />                           
                     </FlexBox>
                     { open && 

@@ -8,8 +8,8 @@ const StyledSection = styled.div<sectionProps>`
     right: ${props => props.right};
 
     @media (max-width: 768px) {
-        left: 50px;
-        width: calc(100% - 50px);
+        width: 100%;
+        left: 0;
     }
 `;
 
