@@ -181,7 +181,10 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                             rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
                         />
                     </FlexBox>
-                    <Table columns={cols} dataSource={data}/>
+                    <div style={{overflowX:'auto'}}>
+                        <Table columns={cols} dataSource={data}/>
+                    </div>
+                    <h1>hello</h1>
                 </Container>
             </Section>  
         </>
