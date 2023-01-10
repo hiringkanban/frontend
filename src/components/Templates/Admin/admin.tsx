@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Badge from "../../Atoms/Badge";
 import Button from "../../Atoms/Button";
 import Modal from "../../Molecules/Modal";
+import Row from "../../Atoms/Row";
+import Col from "../../Atoms/Col";
 
 type dataT = { 
     key: string,
@@ -147,7 +149,12 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
             <Section left="220px">
                 <NavBar leftMenu={leftMenu} rightMenu={rightMenu}/>
                 <Container>
+                    <Row gap={10}>
+                        <Col span={4}>Col 4 offset 2</Col>
+                        <Col span={6} offset={2}>Col 6  offset 2</Col>
+                    </Row>
                     <FlexBox margin="50px 0 20px 0" justify="flex-end" gap="10px">
+                        
                         <Button onClick={() => setOpen(!open)}> open modal </Button>
                         <Modal 
                             title="Modal title" 
