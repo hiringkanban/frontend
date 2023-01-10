@@ -12,6 +12,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Badge from "../../Atoms/Badge";
 import Button from "../../Atoms/Button";
 import Modal from "../../Molecules/Modal";
+import Row from "../../Atoms/Row";
+import Col from "../../Atoms/Col";
+import Input from "../../Atoms/Input";
 
 type dataT = { 
     key: string,
@@ -147,40 +150,47 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
             <Section left="220px">
                 <NavBar leftMenu={leftMenu} rightMenu={rightMenu}/>
                 <Container>
-                    <FlexBox margin="50px 0 20px 0" justify="flex-end" gap="10px">
-                        <Button onClick={() => setOpen(!open)}> open modal </Button>
-                        <Modal 
-                            title="Modal title" 
-                            open={open}
-                            onCancel={handleCancel}
-                        >
-                            Modal content
-                        </Modal>
-                        <Select 
-                            width="120px"
-                            options={[
-                                { label: 'option 01', value: 'value 01' },
-                                { label: 'option 02', value: 'value 02' },
-                                { label: 'option 03', value: 'value 03' },
-                                { label: 'option 04', value: 'value 04' }
-                            ]}
-                            selectedValue={value1}
-                            handleChange={setValue1}
-                            rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
-                        />
-                        <Select 
-                            width="150px"
-                            options={[
-                                { label: 'option 01', value: 'value 01' },
-                                { label: 'option 02', value: 'value 02' },
-                                { label: 'option 03', value: 'value 03' },
-                                { label: 'option 04', value: 'value 04' }
-                            ]}
-                            selectedValue={value}
-                            handleChange={setValue}
-                            rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
-                        />
-                    </FlexBox>
+                    <Row margin="35px 0 5px 0">
+                        <Col span={3}>
+                            <Input placeholder="Search..." onChange={() => console.log('change')} />
+                        </Col>
+                        <Col span={6} offset={3}>
+                            <FlexBox justify="end" alignItem="center">
+                                <Button onClick={() => setOpen(!open)}> open modal </Button>
+                                <Modal
+                                    title="Modal title" 
+                                    open={open}
+                                    onCancel={handleCancel}
+                                >
+                                    Modal content
+                                </Modal>
+                                <Select 
+                                    width="120px"
+                                    options={[
+                                        { label: 'option 01', value: 'value 01' },
+                                        { label: 'option 02', value: 'value 02' },
+                                        { label: 'option 03', value: 'value 03' },
+                                        { label: 'option 04', value: 'value 04' }
+                                    ]}
+                                    selectedValue={value1}
+                                    handleChange={setValue1}
+                                    rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
+                                />
+                                <Select 
+                                    width="150px"
+                                    options={[
+                                            { label: 'option 01', value: 'value 01' },
+                                            { label: 'option 02', value: 'value 02' },
+                                            { label: 'option 03', value: 'value 03' },
+                                            { label: 'option 04', value: 'value 04' }
+                                    ]}
+                                    selectedValue={value}
+                                    handleChange={setValue}
+                                    rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
+                                />
+                            </FlexBox>
+                        </Col>
+                    </Row>
                     <div style={{overflowX:'auto'}}>
                         <Table columns={cols} dataSource={data}/>
                     </div>
