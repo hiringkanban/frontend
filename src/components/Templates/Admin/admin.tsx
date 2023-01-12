@@ -1,3 +1,4 @@
+import React from "react";
 import SideBar from "../../Organisms/Sidebar/sidebar";
 import Section from "../../Atoms/Section";
 import NavBar from "../../Organisms/Navbar/navbar";
@@ -15,6 +16,7 @@ import Modal from "../../Molecules/Modal";
 import Row from "../../Atoms/Row";
 import Col from "../../Atoms/Col";
 import Input from "../../Atoms/Input";
+import Drodown from "../../Molecules/Drodown";
 
 type dataT = { 
     key: string,
@@ -134,6 +136,7 @@ const data : dataT[] = [
     },
 ];
 
+
 const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
 
     const [value, setValue] = useState<string|number>('Sory by');
@@ -144,6 +147,17 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
         setOpen(false)
     }
 
+    const actionsMenu = [
+        { 
+            name: 're-new',
+            onClick: () => console.log('re-new')
+        },
+        { 
+            name: 'Delete',
+            onClick: () => React.cloneElement(<Button>show</Button>)
+        }
+    ];
+
     return (
         <>
             <SideBar />
@@ -153,6 +167,9 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                     <Row margin="35px 0 5px 0">
                         <Col span={3}>
                             <Input placeholder="Search..." onChange={() => console.log('change')} />
+                        </Col>
+                        <Col span={3}>
+                            <Drodown menu={actionsMenu} />
                         </Col>
                         <Col span={6} offset={3}>
                             <FlexBox justify="end" alignItem="center">
