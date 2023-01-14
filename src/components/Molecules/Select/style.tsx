@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { colors } from "../../../styles/styleGuide";
 
-type widthT = {
+type OptionBodyT = {
     width: string,
     justifyTop?: number | null
+    coords: { x: number, y: number, height: number }
 }
 
-export const StyledSelect = styled.div<widthT>`
+export const StyledSelect = styled.div<{width:string}>`
     position: relative;
     width: ${props => props.width};
 
@@ -15,9 +16,10 @@ export const StyledSelect = styled.div<widthT>`
     }
 `;
 
-export const OptionBody = styled.div<widthT>`
+export const OptionBody = styled.div<OptionBodyT>`
     position: absolute;
-    top: ${props => props.justifyTop ? props.justifyTop + 3 : 0 }px;
+    top: ${props => props?.coords?.y + props?.coords?.height + 3}px;
+    left: ${props => props?.coords?.x}px;
     width: ${props => props.width};
     background-color: ${colors.white};
     border: 1px solid rgb(0, 0, 0, 0.15);

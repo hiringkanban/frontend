@@ -16,7 +16,6 @@ export const StyledModal = styled.div`
     width: 100%;
     height: 100%;
     background-color:rgba(0,0,0,.45);
-    z-index: 1000;
     overflow: auto;
 `;
 
