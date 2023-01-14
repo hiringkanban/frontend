@@ -7,6 +7,7 @@ import {
     OptionBody,
     Li
 } from "./style";
+import Portal from "../../Atoms/Portal/portal";
 
 const Select:React.FC<selectProps> = (props) => {
 
@@ -20,7 +21,7 @@ const Select:React.FC<selectProps> = (props) => {
     } = props;
 
     const [show, setShow] = useState(false);
-
+    const [bodyCoordinates, setBodyCoordinates] = useState({x : 0, y : 0, height: 0});
     const selectRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -41,6 +42,13 @@ const Select:React.FC<selectProps> = (props) => {
         return () => document.addEventListener('click', onClickoutside);
     }, [selectRef]);
 
+    const handleButtonClick = () => {
+        setShow(!show);
+        if (buttonRef.current) {
+            const coords = buttonRef.current.getBoundingClientRect();
+            setBodyCoordinates({x: coords.x, y: coords.y, height: coords.height })
+        }
+    }
 
     return (
         <>
@@ -48,7 +56,7 @@ const Select:React.FC<selectProps> = (props) => {
                 <Button 
                     width={width}
                     variant="default"
-                    onClick={() => setShow(!show)}
+                    onClick={handleButtonClick}
                     noborder
                     leftIcon={leftIcon}
                     rightIcon={rightIcon}
@@ -57,21 +65,24 @@ const Select:React.FC<selectProps> = (props) => {
                     <Text>{selectedValue}</Text>
                 </Button>
                 { show && 
-                <OptionBody 
-                    width={width}
-                    justifyTop={buttonRef.current && buttonRef.current.offsetHeight}
-                >
-                    <ul>
-                        {options.map(({label, value}) => 
-                            <Li 
-                                isSelected={selectedValue === value}
-                                onClick={() => handleClick(value)}
-                            >
-                                {label}
-                            </Li>
-                        )}
-                    </ul>
-                </OptionBody>
+                <Portal>
+                    <OptionBody 
+                        width={width}
+                        justifyTop={buttonRef.current && buttonRef.current.offsetHeight}
+                        coords={bodyCoordinates}
+                    >
+                        <ul>
+                            {options.map(({label, value}) => 
+                                <Li 
+                                    isSelected={selectedValue === value}
+                                    onClick={() => handleClick(value)}
+                                >
+                                    {label}
+                                </Li>
+                            )}
+                        </ul>
+                    </OptionBody>
+                </Portal>
                 }
             </StyledSelect>
         </>

@@ -11,6 +11,7 @@ import {
 
 import { modalProps } from "./type";
 import Button from "../../Atoms/Button";
+import Portal from "../../Atoms/Portal/portal";
 
 const Modal:React.FC<modalProps> = (props) => {
 
@@ -26,6 +27,7 @@ const Modal:React.FC<modalProps> = (props) => {
     return (
         <>
             { open &&
+            <Portal>
                 <StyledModal>
                     <ModalContent width={width}>
                         <ModalHeader>
@@ -41,6 +43,7 @@ const Modal:React.FC<modalProps> = (props) => {
                         </ModalFooter>
                     </ModalContent>
                 </StyledModal>
+            </Portal>
             }
         </>
     )
