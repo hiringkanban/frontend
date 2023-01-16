@@ -17,7 +17,6 @@ import Row from "../../Atoms/Row";
 import Col from "../../Atoms/Col";
 import Input from "../../Atoms/Input";
 import Drodown from "../../Molecules/Drodown";
-import Drodown from "../../Molecules/Drodown";
 import Text from "../../Atoms/Text";
 type dataT = { 
     key: string,
@@ -177,17 +176,6 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
         },
     ];
 
-
-    const actionsMenu = [
-        { 
-            name: 're-new',
-            onClick: () => console.log('re-new')
-        },
-        { 
-            name: 'Delete',
-            onClick: () => React.cloneElement(<Button>show</Button>)
-        }
-    ];
 
     return (
         <>

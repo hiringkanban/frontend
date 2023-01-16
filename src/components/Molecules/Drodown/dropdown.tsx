@@ -15,7 +15,6 @@ const Dropdown:React.FC<dropdownProps> = ({ menu }) => {
                         {menu.map((item) => 
                             <li onClick={() => item.onClick()}>
                                 {item.name}
-                                {item?.modal}
                             </li>
                         )}
                     </ul>
