@@ -16,6 +16,7 @@ import Portal from "../../Atoms/Portal/portal";
 const Modal:React.FC<modalProps> = (props) => {
 
     const {
+        id,
         title,
         open,
         width,
@@ -28,7 +29,7 @@ const Modal:React.FC<modalProps> = (props) => {
         <>
             { open &&
             <Portal>
-                <StyledModal>
+                <StyledModal id={id}>
                     <ModalContent width={width}>
                         <ModalHeader>
                             <Text>{title}</Text>

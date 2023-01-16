@@ -8,7 +8,7 @@ export interface columnsT {
 }
 
 export interface dataSourceT {
-    [key: string]: React.ReactNode | string[]
+    [key: string]: any
 }
 
 export interface tableProps {

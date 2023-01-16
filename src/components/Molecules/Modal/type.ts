@@ -1,7 +1,8 @@
 import React from "react"
 
 export interface modalProps {
-    open: boolean,
+    id: string,
+    open: boolean | string,
     title: string,
     okText?: string,
     width?: string,
