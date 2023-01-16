@@ -2,7 +2,6 @@ import { useState } from "react";
 import Button from "../../Atoms/Button";
 import { DropdownOptions } from "./style";
 import { dropdownProps } from "./type";
-import Modal from "../Modal";
 const Dropdown:React.FC<dropdownProps> = ({ menu }) => {
 
     const [open, setOpen] = useState(false);
