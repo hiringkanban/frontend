@@ -107,10 +107,17 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
             actions: [
                 { 
                     name: 're-new',
+                    icon: <FontAwesomeIcon icon={['far', 'circle-play']}/>,
                     onClick: () => console.log('re-new'),
                 },
                 { 
+                    name: 'Pause',
+                    icon: <FontAwesomeIcon icon={['far', 'circle-pause']}/>,
+                    onClick: () => openModal(`Delete job 01`, () => console.log('pause call api 01...')),
+                },
+                { 
                     name: 'Delete',
+                    icon: <FontAwesomeIcon icon={['far', 'trash-can']}/>,
                     onClick: () => openModal(`Delete job 01`, () => console.log('delete call api 01...')),
                 }
             ]
@@ -126,10 +133,12 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
             actions: [
                 { 
                     name: 're-new',
+                    icon: <FontAwesomeIcon icon={['far', 'circle-play']}/>,
                     onClick: () => console.log('re-new'),
                 },
                 { 
                     name: 'Delete',
+                    icon: <FontAwesomeIcon icon={['far', 'trash-can']}/>,
                     onClick: () => openModal(`Delete job 02`, () => console.log('delete call api 02...')),
                 }
             ]
