@@ -1,3 +1,4 @@
+import React from "react";
 import SideBar from "../../Organisms/Sidebar/sidebar";
 import Section from "../../Atoms/Section";
 import NavBar from "../../Organisms/Navbar/navbar";
@@ -15,7 +16,8 @@ import Modal from "../../Molecules/Modal";
 import Row from "../../Atoms/Row";
 import Col from "../../Atoms/Col";
 import Input from "../../Atoms/Input";
-
+import Drodown from "../../Molecules/Drodown";
+import Text from "../../Atoms/Text";
 type dataT = { 
     key: string,
     title: string,
@@ -24,7 +26,7 @@ type dataT = {
     salary: number,
     date: string,
     status: string,
-    actions: string
+    actions: {}[]
 }
 
 const cols: columnsT[] = [
@@ -68,102 +70,145 @@ const cols: columnsT[] = [
         title: 'Actions',
         dataIndex: 'actions',
         key: 'actions',
+        render: (_, {actions}) => <Drodown menu={actions}/>
     },
 ];
 
-const data : dataT[] = [
-    {
-        key: '1',
-        title: 'Team Lead',
-        skills: ['Java', 'C++'],
-        experiences: '5 years',
-        salary: 15000,
-        date: 'October 05, 2019',
-        status: 'Active',
-        actions: ''
-    },
-    {
-        key: '1',
-        title: 'Backend Developer',
-        skills: ['PHP', 'C++'],
-        experiences: '02 years',
-        salary: 15000,
-        date: 'October 05, 2019',
-        status: 'Active',
-        actions: ''
-    },
-    {
-        key: '1',
-        title: 'Backend Developer',
-        skills: ['PHP', 'C++'],
-        experiences: '02 years',
-        salary: 15000,
-        date: 'October 05, 2019',
-        status: 'Active',
-        actions: ''
-    },
-    {
-        key: '1',
-        title: 'Backend Developer',
-        skills: ['PHP', 'C++'],
-        experiences: '02 years',
-        salary: 15000,
-        date: 'October 05, 2019',
-        status: 'Active',
-        actions: ''
-    },
-    {
-        key: '1',
-        title: 'Backend Developer',
-        skills: ['PHP', 'C++'],
-        experiences: '02 years',
-        salary: 15000,
-        date: 'October 05, 2019',
-        status: 'Active',
-        actions: ''
-    },
-    {
-        key: '1',
-        title: 'Backend Developer',
-        skills: ['PHP', 'C++'],
-        experiences: '02 years',
-        salary: 15000,
-        date: 'October 05, 2019',
-        status: 'Active',
-        actions: ''
-    },
-];
+
+
+type activeModalT = { 
+    name:string,
+    onOk: () => void
+}
 
 const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
 
     const [value, setValue] = useState<string|number>('Sory by');
     const [value1, setValue1] = useState<string|number>('Sory by');
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState<boolean|string>(false);
 
-    const handleCancel = () => {
-        setOpen(false)
+    const [activeModal, setActiveModal] = 
+        useState<activeModalT>({name: '', onOk: () => null });
+
+    const openModal = (name: string, onOk: () => void) => {
+        setActiveModal({...activeModal, name: name, onOk: onOk})
+        setOpen(true);
     }
+
+    const data : dataT[] = [
+        {
+            key: '1',
+            title: 'Team Lead',
+            skills: ['Java', 'C++'],
+            experiences: '5 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: [
+                { 
+                    name: 're-new',
+                    icon: <FontAwesomeIcon icon={['far', 'circle-play']}/>,
+                    onClick: () => console.log('re-new'),
+                },
+                { 
+                    name: 'Pause',
+                    icon: <FontAwesomeIcon icon={['far', 'circle-pause']}/>,
+                    onClick: () => openModal(`Delete job 01`, () => console.log('pause call api 01...')),
+                },
+                { 
+                    name: 'Delete',
+                    icon: <FontAwesomeIcon icon={['far', 'trash-can']}/>,
+                    onClick: () => openModal(`Delete job 01`, () => console.log('delete call api 01...')),
+                }
+            ]
+        },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: [
+                { 
+                    name: 're-new',
+                    icon: <FontAwesomeIcon icon={['far', 'circle-play']}/>,
+                    onClick: () => console.log('re-new'),
+                },
+                { 
+                    name: 'Delete',
+                    icon: <FontAwesomeIcon icon={['far', 'trash-can']}/>,
+                    onClick: () => openModal(`Delete job 02`, () => console.log('delete call api 02...')),
+                }
+            ]
+        },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: []
+        },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: []
+        },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: []
+        },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: []
+        },
+    ];
+
 
     return (
         <>
+            <Modal
+                id="delete-job"
+                title={activeModal.name}
+                open={open}
+                onCancel={() => setOpen(false)}
+                onOk={() => activeModal.onOk()}
+                >
+                    Delete Modal content
+            </Modal>
             <SideBar />
             <Section left="220px">
                 <NavBar leftMenu={leftMenu} rightMenu={rightMenu}/>
                 <Container>
+                
                     <Row margin="35px 0 5px 0">
                         <Col span={3}>
                             <Input placeholder="Search..." onChange={() => console.log('change')} />
                         </Col>
+                       
                         <Col span={6} offset={3}>
                             <FlexBox justify="end" alignItem="center">
-                                <Button onClick={() => setOpen(!open)}> open modal </Button>
-                                <Modal
-                                    title="Modal title" 
-                                    open={open}
-                                    onCancel={handleCancel}
-                                >
-                                    Modal content
-                                </Modal>
                                 <Select 
                                     width="120px"
                                     options={[

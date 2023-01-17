@@ -9,7 +9,7 @@ const breatheAnimation = keyframes`
         transform:scale(1)
     }
 `;
-export const StyledModal = styled.div`
+export const StyledModal = styled.div<{id: string | number}>`
     position: fixed;
     top: 0;
     left: 0;
