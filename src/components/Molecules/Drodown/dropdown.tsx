@@ -3,17 +3,11 @@ import Button from "../../Atoms/Button";
 import Portal from "../../Atoms/Portal/portal";
 import { DropdownOptions } from "./style";
 import { dropdownProps } from "./type";
-const Dropdown:React.FC<dropdownProps> = ({ menu }) => {
+const Dropdown:React.FC<dropdownProps> = ({ menu, name }) => {
 
     const [open, setOpen] = useState(false);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const [bodyCoordinates, setBodyCoordinates] = useState({x : 0, y : 0, height: 0});
-
-    /*useEffect(() => {
-        document.addEventListener('click', onClickoutside);
-
-        return () => document.addEventListener('click', onClickoutside);
-    }, [dropdownRef]);*/
 
     const handleButtonClick = () => {
         setOpen(!open);
@@ -27,9 +21,10 @@ const Dropdown:React.FC<dropdownProps> = ({ menu }) => {
         <div>
             <Button 
                 onClick={handleButtonClick}
+                size="small"
                 ref={buttonRef}
             >
-                    choose
+                {name}
             </Button>
             {open && 
             <Portal>

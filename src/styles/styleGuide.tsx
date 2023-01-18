@@ -1,20 +1,22 @@
 export const colors = {
-    primary: 'rgba(93, 95, 239)',
+    primary: '#696cff',
     white: '#fff',
-    gray: 'rgba(151, 151, 151, 0.5)',
+    gray: '#697a8d',
     lightGray: '#f5f5f5',
     green: 'rgba(54, 159, 71, 1)',
     blue: 'rgba(10, 88, 132, 1)',
     darkBlue: 'rgba(41, 47, 76, 1)',
     black: 'rgba(0, 0, 0,)',
     red: 'rgba(216, 67, 67, 1)',
+    dark: '#233446'
 }
 
 export const status:{[key:string]: string} = {
     default: colors.primary,
     success: colors.green,
     info: colors.blue,
-    danger: colors.red
+    danger: colors.red,
+    dark: colors.dark
 }
 
 export const fontWeight:any = {
@@ -27,10 +29,10 @@ export const fontWeight:any = {
 export const fontSize:any = {
 
     // Use as main header on a page - H1
-    main_heading: '30px', 
+    main_heading: '36px', 
 
     // Use as secondary header on a page - H2
-    secondary_heading: '24px',
+    secondary_heading: '30px',
 
     // Use after heading, profile page headings - H3
     tertiary_heading: '24px',
@@ -39,7 +41,7 @@ export const fontSize:any = {
     fourth_heading: '18px',
 
     // Use as subtitles for paragraphs - H5
-    fifth_heading: '16px',
+    fifth_heading: '14px',
 
     // Use for general text or labels
     text: '1rem',
@@ -49,6 +51,9 @@ export const fontSize:any = {
 
     // Use for subtexts
     subtext: '14px',
+
+    // use for small
+    small_text: '12px',
 
 }
 
@@ -86,4 +91,4 @@ export const buttonSize: any = {
     small: '0.25em 0.5em'
 }
 
-export const borderRadius = '0.3em';
+export const borderRadius = '0.35em';
