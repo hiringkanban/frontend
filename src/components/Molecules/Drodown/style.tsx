@@ -12,7 +12,7 @@ export const DropdownOptions = styled.div<OptionBodyT>`
     left: ${props => props?.coords?.x}px;
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 150px;
     padding: 5px;
     box-shadow: 0 6px 16px 0 rgb(0 0 0 / 8%);
     background-color: #fff;

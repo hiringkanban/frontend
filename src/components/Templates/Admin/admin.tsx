@@ -1,23 +1,18 @@
-import React from "react";
+import React, { createContext } from "react";
 import SideBar from "../../Organisms/Sidebar/sidebar";
 import Section from "../../Atoms/Section";
-import NavBar from "../../Organisms/Navbar/navbar";
 import Table from "../../Molecules/Table";
 import { navbarProps } from '../nabvarType';
 import Container from "../../Atoms/Container";
-import FlexBox from "../../Atoms/Flexbox/flexbox";
 import { columnsT } from "../../Molecules/Table/type";
-import Select from "../../Molecules/Select";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Badge from "../../Atoms/Badge";
-import Button from "../../Atoms/Button";
 import Modal from "../../Molecules/Modal";
-import Row from "../../Atoms/Row";
-import Col from "../../Atoms/Col";
-import Input from "../../Atoms/Input";
 import Drodown from "../../Molecules/Drodown";
-import Text from "../../Atoms/Text";
+import AdminNavBar from "../../Organisms/AdminNavBar";
+import { SideBarContext } from "../../../context";
+
 type dataT = { 
     key: string,
     title: string,
@@ -42,7 +37,7 @@ const cols: columnsT[] = [
         key: 'skills',
         render:(_, {skills}) => (
             <>
-                {skills && (skills as any[]).map((item) => <Badge bg='info'>{item}</Badge>)}
+                {skills && (skills as any[]).map((item) => <Badge bg='dark'>{item}</Badge>)}
             </>
         )
     },
@@ -70,11 +65,9 @@ const cols: columnsT[] = [
         title: 'Actions',
         dataIndex: 'actions',
         key: 'actions',
-        render: (_, {actions}) => <Drodown menu={actions}/>
+        render: (_, {actions}) => <Drodown menu={actions} name="Actions"/>
     },
 ];
-
-
 
 type activeModalT = { 
     name:string,
@@ -83,10 +76,8 @@ type activeModalT = {
 
 const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
 
-    const [value, setValue] = useState<string|number>('Sory by');
-    const [value1, setValue1] = useState<string|number>('Sory by');
-    const [open, setOpen] = useState<boolean|string>(false);
-
+    const [open, setOpen] = useState<boolean>(false);
+    const [toggle, setToggle] = useState(false);
     const [activeModal, setActiveModal] = 
         useState<activeModalT>({name: '', onOk: () => null });
 
@@ -108,17 +99,17 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                 { 
                     name: 're-new',
                     icon: <FontAwesomeIcon icon={['far', 'circle-play']}/>,
-                    onClick: () => console.log('re-new'),
+                    onClick: () => console.log(this),
                 },
                 { 
                     name: 'Pause',
                     icon: <FontAwesomeIcon icon={['far', 'circle-pause']}/>,
-                    onClick: () => openModal(`Delete job 01`, () => console.log('pause call api 01...')),
+                    onClick: () => openModal(`Team Lead`, () => console.log('pause call api 01...')),
                 },
                 { 
                     name: 'Delete',
                     icon: <FontAwesomeIcon icon={['far', 'trash-can']}/>,
-                    onClick: () => openModal(`Delete job 01`, () => console.log('delete call api 01...')),
+                    onClick: () => openModal(`Team Lead`, () => console.log('delete call api 01...')),
                 }
             ]
         },
@@ -185,7 +176,6 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
         },
     ];
 
-
     return (
         <>
             <Modal
@@ -195,53 +185,19 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                 onCancel={() => setOpen(false)}
                 onOk={() => activeModal.onOk()}
                 >
-                    Delete Modal content
+                    Are you sure want to remove <b>{activeModal.name}</b> job?
             </Modal>
-            <SideBar />
-            <Section left="220px">
-                <NavBar leftMenu={leftMenu} rightMenu={rightMenu}/>
-                <Container>
-                
-                    <Row margin="35px 0 5px 0">
-                        <Col span={3}>
-                            <Input placeholder="Search..." onChange={() => console.log('change')} />
-                        </Col>
-                       
-                        <Col span={6} offset={3}>
-                            <FlexBox justify="end" alignItem="center">
-                                <Select 
-                                    width="120px"
-                                    options={[
-                                        { label: 'option 01', value: 'value 01' },
-                                        { label: 'option 02', value: 'value 02' },
-                                        { label: 'option 03', value: 'value 03' },
-                                        { label: 'option 04', value: 'value 04' }
-                                    ]}
-                                    selectedValue={value1}
-                                    handleChange={setValue1}
-                                    rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
-                                />
-                                <Select 
-                                    width="150px"
-                                    options={[
-                                            { label: 'option 01', value: 'value 01' },
-                                            { label: 'option 02', value: 'value 02' },
-                                            { label: 'option 03', value: 'value 03' },
-                                            { label: 'option 04', value: 'value 04' }
-                                    ]}
-                                    selectedValue={value}
-                                    handleChange={setValue}
-                                    rightIcon={<FontAwesomeIcon icon={['fas', 'filter']} style={{color: '#5d5fef'}} />}
-                                />
-                            </FlexBox>
-                        </Col>
-                    </Row>
-                    <div style={{overflowX:'auto'}}>
-                        <Table columns={cols} dataSource={data}/>
-                    </div>
-                    <h1>hello</h1>
-                </Container>
-            </Section>  
+            <SideBarContext.Provider value={{toggle, setToggle}}>
+                <SideBar />
+                <Section left="260px">
+                    <AdminNavBar />                        
+                    <Container>
+                        <div style={{overflowX: 'auto'}}>
+                            <Table columns={cols} dataSource={data}/>
+                        </div>
+                    </Container>
+                </Section>
+            </SideBarContext.Provider>
         </>
     )
 }

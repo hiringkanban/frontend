@@ -11,7 +11,7 @@ const StyledBadge = styled.span<badgeProps>`
     background-color: ${props => status[props.bg]};
     margin-left: 5px;
     color: ${colors.white};
-    font-size: ${fontSize.subtext};
+    font-size: ${fontSize.small_text};
     padding: 3px 5px;
     border-radius: ${borderRadius} ;
 `;

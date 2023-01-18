@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Logo from "../../Atoms/Logo";
 import Menu from "../../Molecules/Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,10 +10,11 @@ import {
     CLoseIcon
 } from "./style";
 import FlexBox from "../../Atoms/Flexbox/flexbox";
+import { SideBarContext } from "../../../context";
 
 const SideBar = () => {
 
-    const [open, setOpen] = useState(false);
+    const {toggle, setToggle} = useContext(SideBarContext);
 
     const leftMenu = [
         { value: 'Jobs', href: '#', icon: <FontAwesomeIcon icon={['far', 'clipboard']} />},
@@ -27,13 +28,7 @@ const SideBar = () => {
 
     return (
         <>
-            <OpenIcon>
-                <FontAwesomeIcon 
-                    icon={['fas', 'bars']}
-                    onClick={() => setOpen(true)}
-                />
-            </OpenIcon>
-            <StyledSideBar open={open}>
+            <StyledSideBar toggle={toggle}>
                 <FlexBox justify="space-between">
                     <StyledLogo>
                         <Logo />
@@ -41,7 +36,7 @@ const SideBar = () => {
                     <CLoseIcon>
                         <FontAwesomeIcon 
                             icon={['fas', 'close']}
-                            onClick={() => setOpen(false)}
+                            onClick={() => setToggle(false)}
                         />
                     </CLoseIcon>
                 </FlexBox>

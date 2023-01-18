@@ -27,6 +27,7 @@ display: block;
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
+  background-color: #f5f5f9;;
 }
 `;
 

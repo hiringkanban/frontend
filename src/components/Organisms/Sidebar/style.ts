@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../styles/styleGuide";
+import { borderRadius, colors } from "../../../styles/styleGuide";
 
 export const StyledLogo = styled.div`
     display: flex;
@@ -19,17 +19,19 @@ export const OpenIcon = styled.div`
         font-size: 30px;
     }
 `;
-export const StyledSideBar = styled.div<{open: boolean}>`
+export const StyledSideBar = styled.div<{toggle: boolean}>`
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 220px;
-    background-color: ${colors.darkBlue};
+    width: 260px;
+    padding: 0 16px ;
+    background-color: ${colors.white};
     z-index: 8;
     transition: all 0.5s ease-out;
+    box-shadow: 0 0.125rem 0.375rem 0 rgb(161 172 184 / 12%);
     @media (max-width: 768px) {
-        left: ${props => props.open ? '0px': '-100%'};
+        left: ${props => props.toggle ? '0px': '-100%'};
 
         & ul {
             li {
@@ -39,18 +41,41 @@ export const StyledSideBar = styled.div<{open: boolean}>`
         }
     }
 
-    li {
-        margin: 0;
-        width: 100%;
-        padding: 10px 20px;
-        cursor: pointer;
-        a {
-            color: #ffffff;
-            font-weight: 500;
-            margin-left: 10px;
-        }
-        :hover {
-            opacity: 0.5;
+    ul {
+        margin: 25px 0;
+        li {
+            margin: 0;
+            width: 100%;
+            padding: 12px 20px;
+            cursor: pointer;
+            a {
+                color: ${colors.gray};
+                font-size: 0.975rem;
+                font-weight: 500;
+                margin-left: 10px;
+            }
+
+            svg {
+                color: ${colors.gray};
+            }
+
+            :hover {
+                background-color: rgb(0, 0, 0, 3%);
+                transition-duration: .2s;
+                transition-property: color,background-color;
+                border-radius: ${borderRadius};
+            }
+
+            // this style shoud be for active element, only here for demenstrate
+            :first-child {
+                color: ${colors.primary};
+                background-color: rgba(105,108,255,.16);
+                border-radius: ${borderRadius};
+                a, svg {
+                    color: ${colors.primary};
+                    font-weight: 600;
+                }
+            }
         }
     }
 `;
