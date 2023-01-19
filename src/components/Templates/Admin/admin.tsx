@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React from "react";
 import SideBar from "../../Organisms/Sidebar/sidebar";
 import Section from "../../Atoms/Section";
 import Table from "../../Molecules/Table";
@@ -12,7 +12,9 @@ import Modal from "../../Molecules/Modal";
 import Drodown from "../../Molecules/Drodown";
 import AdminNavBar from "../../Organisms/AdminNavBar";
 import { SideBarContext } from "../../../context";
-
+import Pagination from "../../Molecules/Pagination";
+import Box from "../../Atoms/Box";
+import FlexBox from "../../Atoms/Flexbox/flexbox";
 type dataT = { 
     key: string,
     title: string,
@@ -176,6 +178,15 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
         },
     ];
 
+    const paginationitems = [
+        { value: 1, onClick: () => console.log('pagination')},
+        { value: 2, onClick: () => console.log('pagination')},
+        { value: 3, onClick: () => console.log('pagination')},
+        { value: 4, onClick: () => console.log('pagination')},
+        { value: 5, onClick: () => console.log('pagination')},
+        { value: 6, onClick: () => console.log('pagination')}
+    ]
+
     return (
         <>
             <Modal
@@ -195,6 +206,11 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                         <div style={{overflowX: 'auto'}}>
                             <Table columns={cols} dataSource={data}/>
                         </div>
+                        <Box margin="10px 0">
+                            <FlexBox justify="center">
+                                <Pagination total={20}></Pagination>
+                            </FlexBox>
+                        </Box>
                     </Container>
                 </Section>
             </SideBarContext.Provider>
