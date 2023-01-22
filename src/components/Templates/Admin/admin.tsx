@@ -208,7 +208,7 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                         </div>
                         <Box margin="10px 0">
                             <FlexBox justify="center">
-                                <Pagination total={20}></Pagination>
+                                <Pagination total={10}></Pagination>
                             </FlexBox>
                         </Box>
                     </Container>
