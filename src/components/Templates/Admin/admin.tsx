@@ -15,6 +15,7 @@ import { SideBarContext } from "../../../context";
 import Pagination from "../../Molecules/Pagination";
 import Box from "../../Atoms/Box";
 import FlexBox from "../../Atoms/Flexbox/flexbox";
+import Select from "../../Molecules/Select";
 type dataT = { 
     key: string,
     title: string,
@@ -183,6 +184,8 @@ const AdminTemplate:React.FC<navbarProps> = () => {
         setCurrent(page);
     }
 
+    const [value, setValue] = useState<string|number>('Sory by');
+
     return (
         <>
             <Modal
@@ -199,6 +202,17 @@ const AdminTemplate:React.FC<navbarProps> = () => {
                 <Section left="260px">
                     <AdminNavBar />                        
                     <Container>
+                        <Select 
+                            width="200px"
+                            options={[
+                                { label: 'option 01', value: 'value 01' },
+                                { label: 'option 02', value: 'value 02' },
+                                { label: 'option 03', value: 'value 03' },
+                                { label: 'option 04', value: 'value 04' }
+                            ]}
+                            selectedValue={value}
+                            handleChange={setValue}
+                        />
                         <div style={{overflowX: 'auto'}}>
                             <Table columns={cols} dataSource={data}/>
                         </div>

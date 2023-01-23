@@ -8,6 +8,7 @@ import {
     Li
 } from "./style";
 import Portal from "../../Atoms/Portal/portal";
+import { useOutsideClick } from "../../../hooks/useOutsideClick";
 
 const Select:React.FC<selectProps> = (props) => {
 
@@ -30,17 +31,7 @@ const Select:React.FC<selectProps> = (props) => {
         setShow(false);
     }
 
-    const onClickoutside = (event:Event) => {
-        if (selectRef.current && !selectRef.current.contains(event.target as Element)) {
-            setShow(false);
-        }
-    }
-
-    useEffect(() => {
-        document.addEventListener('click', onClickoutside);
-
-        return () => document.addEventListener('click', onClickoutside);
-    }, [selectRef]);
+    useOutsideClick(selectRef, () => setShow(false));
 
     const handleButtonClick = () => {
         setShow(!show);
