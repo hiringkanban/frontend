@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React from "react";
 import SideBar from "../../Organisms/Sidebar/sidebar";
 import Section from "../../Atoms/Section";
 import Table from "../../Molecules/Table";
@@ -12,7 +12,9 @@ import Modal from "../../Molecules/Modal";
 import Drodown from "../../Molecules/Drodown";
 import AdminNavBar from "../../Organisms/AdminNavBar";
 import { SideBarContext } from "../../../context";
-
+import Pagination from "../../Molecules/Pagination";
+import Box from "../../Atoms/Box";
+import FlexBox from "../../Atoms/Flexbox/flexbox";
 type dataT = { 
     key: string,
     title: string,
@@ -74,10 +76,11 @@ type activeModalT = {
     onOk: () => void
 }
 
-const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
+const AdminTemplate:React.FC<navbarProps> = () => {
 
     const [open, setOpen] = useState<boolean>(false);
     const [toggle, setToggle] = useState(false);
+    const [current, setCurrent] = useState(1);
     const [activeModal, setActiveModal] = 
         useState<activeModalT>({name: '', onOk: () => null });
 
@@ -176,6 +179,10 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
         },
     ];
 
+    const handleChange = (page: number): void => {
+        setCurrent(page);
+    }
+
     return (
         <>
             <Modal
@@ -195,6 +202,15 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                         <div style={{overflowX: 'auto'}}>
                             <Table columns={cols} dataSource={data}/>
                         </div>
+                        <Box margin="10px 0">
+                            <FlexBox justify="center">
+                                <Pagination 
+                                    total={3}
+                                    pageSize={3}
+                                    current={current}
+                                    onChange={handleChange} />
+                            </FlexBox>
+                        </Box>
                     </Container>
                 </Section>
             </SideBarContext.Provider>

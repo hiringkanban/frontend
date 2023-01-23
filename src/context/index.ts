@@ -8,4 +8,3 @@ export const SideBarContext = createContext<contextT>({
     toggle: false, 
     setToggle: (c: boolean) => {}
 });
-
