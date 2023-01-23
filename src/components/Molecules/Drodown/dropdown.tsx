@@ -3,11 +3,16 @@ import Button from "../../Atoms/Button";
 import Portal from "../../Atoms/Portal/portal";
 import { DropdownOptions } from "./style";
 import { dropdownProps } from "./type";
+import { useOutsideClick } from "../../../hooks/useOutsideClick";
+
 const Dropdown:React.FC<dropdownProps> = ({ menu, name }) => {
 
     const [open, setOpen] = useState(false);
     const buttonRef = useRef<HTMLButtonElement>(null);
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const [bodyCoordinates, setBodyCoordinates] = useState({x : 0, y : 0, height: 0});
+    
+    useOutsideClick(dropdownRef, () => setOpen(false));
 
     const handleButtonClick = () => {
         setOpen(!open);
@@ -18,7 +23,7 @@ const Dropdown:React.FC<dropdownProps> = ({ menu, name }) => {
     }
 
     return (
-        <div>
+        <div ref={dropdownRef}>
             <Button 
                 onClick={handleButtonClick}
                 size="small"
