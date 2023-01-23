@@ -11,7 +11,7 @@ export const StyledPaginationLink = styled.li<{active?: boolean}>`
     margin-left: 3px;
     padding: 5px;
     border-radius: ${borderRadius};
-
+    cursor: pointer;
     :hover {
         background-color: #e1e4e8;
     }
@@ -22,6 +22,5 @@ export const StyledPaginationLink = styled.li<{active?: boolean}>`
         text-align: center;
         line-height: 1;
         font-weight: ${fontWeight.bold};
-        cursor: pointer;
     }
 `;

@@ -76,10 +76,11 @@ type activeModalT = {
     onOk: () => void
 }
 
-const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
+const AdminTemplate:React.FC<navbarProps> = () => {
 
     const [open, setOpen] = useState<boolean>(false);
     const [toggle, setToggle] = useState(false);
+    const [current, setCurrent] = useState(1);
     const [activeModal, setActiveModal] = 
         useState<activeModalT>({name: '', onOk: () => null });
 
@@ -178,14 +179,9 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
         },
     ];
 
-    const paginationitems = [
-        { value: 1, onClick: () => console.log('pagination')},
-        { value: 2, onClick: () => console.log('pagination')},
-        { value: 3, onClick: () => console.log('pagination')},
-        { value: 4, onClick: () => console.log('pagination')},
-        { value: 5, onClick: () => console.log('pagination')},
-        { value: 6, onClick: () => console.log('pagination')}
-    ]
+    const handleChange = (page: number): void => {
+        setCurrent(page);
+    }
 
     return (
         <>
@@ -208,7 +204,11 @@ const AdminTemplate:React.FC<navbarProps> = ({ leftMenu, rightMenu }) => {
                         </div>
                         <Box margin="10px 0">
                             <FlexBox justify="center">
-                                <Pagination total={10}></Pagination>
+                                <Pagination 
+                                    total={3}
+                                    pageSize={3}
+                                    current={current}
+                                    onChange={handleChange} />
                             </FlexBox>
                         </Box>
                     </Container>

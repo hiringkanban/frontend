@@ -5,23 +5,31 @@ import {
 } from "./style"
 import { paginationProps } from "./type"
 
-const Pagiantion:React.FC<paginationProps> = ({total}) => {
+const Pagiantion:React.FC<paginationProps> = (props) => {
 
-    const [current, setCurrent] = useState(1);
-    const window = 4;
+    const {
+        total,
+        current,
+        pageSize,
+        onChange
+    } = props;
+
+    const getEnd = () => {
+        return total > pageSize ? pageSize :  total
+    }
     const [start, setStart] = useState(1);
-    const [end, setEnd] = useState(4);
+    const [end, setEnd] = useState(getEnd());
     const pagination:[React.ReactElement | null] = [null];
 
     for (let i = start; i <= end; i++ ) {
         pagination.push(
         <StyledPaginationLink active={i === current}>
-            <a onClick={() => setCurrent(i)}>{i}</a>
+            <a onClick={() => onChange(i)}>{i}</a>
         </StyledPaginationLink>); 
     }
 
     const next = () => { 
-        setCurrent(current + 1);
+        onChange(current + 1);
         if(current === end) {
             setStart(start + 1);
             setEnd(end + 1);
@@ -29,7 +37,7 @@ const Pagiantion:React.FC<paginationProps> = ({total}) => {
     };
 
     const prev = () => {
-        setCurrent(current - 1);
+        onChange(current - 1);
         if(current === start) {
             setStart(start - 1);
             setEnd(end - 1);
@@ -40,12 +48,12 @@ const Pagiantion:React.FC<paginationProps> = ({total}) => {
 
     return (
         <StyledPagination>
-            { end > window &&
+            { end > pageSize && 
                 <StyledPaginationLink><a onClick={prev}> Prev </a></StyledPaginationLink>
             }
             {pagination}
-            { current < total &&
-                <StyledPaginationLink><a  onClick={next}> Next </a></StyledPaginationLink>
+            { (current < total && total > pageSize) &&
+                <StyledPaginationLink><a onClick={next}> Next </a></StyledPaginationLink>
             }
         </StyledPagination>
     )
