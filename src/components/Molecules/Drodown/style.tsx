@@ -3,13 +3,17 @@ import { borderRadius } from "../../../styles/styleGuide";
 
 type OptionBodyT = {
     justifyTop?: number | null
-    coords: { x: number, y: number, height: number }
+    coords: { x: number, y: number, height: number, width: number },
+    window: number
 }
 
 export const DropdownOptions = styled.div<OptionBodyT>`
     position: absolute;
     top: ${props => props?.coords?.y + props?.coords?.height + 10}px;
-    left: ${props => props?.coords?.x}px;
+    ${props => props?.coords?.x + 150 > props.window ? 
+    `right:${props.window - (props?.coords?.x + props?.coords?.width)}px;`:
+    `left: ${props?.coords?.x}px;` 
+    }
     display: flex;
     flex-direction: column;
     width: 150px;
@@ -23,7 +27,11 @@ export const DropdownOptions = styled.div<OptionBodyT>`
 	    border-right: 15px solid transparent;
 	    border-bottom: 15px solid #fff;
         position: absolute;
-        top: -14px;
+        top: -12px;
+        ${props => props?.coords?.x + 150 > props.window ? 
+        `right: 0;`:
+        `left: 0;` 
+        }
     }
 
     & ul {
