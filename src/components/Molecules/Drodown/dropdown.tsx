@@ -7,10 +7,11 @@ import { useOutsideClick } from "../../../hooks/useOutsideClick";
 
 const Dropdown:React.FC<dropdownProps> = ({ menu, name }) => {
 
+    const {innerWidth, innerHeight} = window;
     const [open, setOpen] = useState(false);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
-    const [bodyCoordinates, setBodyCoordinates] = useState({x : 0, y : 0, height: 0});
+    const [bodyCoordinates, setBodyCoordinates] = useState({x : 0, y : 0, height: 0, width: 0});
     
     useOutsideClick(dropdownRef, () => setOpen(false));
 
@@ -18,7 +19,12 @@ const Dropdown:React.FC<dropdownProps> = ({ menu, name }) => {
         setOpen(!open);
         if (buttonRef.current) {
             const coords = buttonRef.current.getBoundingClientRect();
-            setBodyCoordinates({x: coords.x, y: coords.y, height: coords.height })
+            setBodyCoordinates({
+                x: coords.x,
+                y: coords.y,
+                height: coords.height,
+                width: coords.width
+            });
         }
     }
 
@@ -36,6 +42,7 @@ const Dropdown:React.FC<dropdownProps> = ({ menu, name }) => {
                 <DropdownOptions 
                     justifyTop={buttonRef.current && buttonRef.current.offsetHeight}
                     coords={bodyCoordinates}
+                    window={innerWidth}
                 >
                     <ul>
                         {menu.map((item) => 
