@@ -3,12 +3,13 @@ import StyledLink from './style';
 
 interface LinkProps {
     href: string,
+    color?: string,
     children: React.ReactNode
 }
 
-const Link:React.FC<LinkProps> = ({ href, children }) => {
+const Link:React.FC<LinkProps> = ({ href, children, color }) => {
     return ( 
-        <StyledLink to={href}> {children} </StyledLink>
+        <StyledLink to={href} color={color}> {children} </StyledLink>
     )
 }
 

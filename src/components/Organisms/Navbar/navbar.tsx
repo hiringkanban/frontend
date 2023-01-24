@@ -13,7 +13,7 @@ const NavBar:React.FC<navbarProps> = ({leftMenu, rightMenu, logo}) => {
 
     return (
         <StyledNav>
-            <HideOn>
+            <HideOn on="mobile">
                 <Container>
                     <FlexBox alignItem="center">
                         {logo}
