@@ -216,7 +216,7 @@ const AdminTemplate:React.FC<navbarProps> = () => {
                         <div style={{overflowX: 'auto'}}>
                             <Table columns={cols} dataSource={data}/>
                         </div>
-                        <Box margin="10px 0">
+                        <Box margin="10px 0" padding="10px">
                             <FlexBox justify="center">
                                 <Pagination 
                                     total={3}

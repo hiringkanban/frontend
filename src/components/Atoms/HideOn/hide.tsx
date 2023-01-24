@@ -8,14 +8,20 @@ interface hideProps {
 }
 
 const StyledHideOn = styled.div<{on: onT}>`
+    display: flex;
+    align-items: center;
     width: 100%;
     ${props => props.on === 'desktop' ? 
-        `@media (min-width: 768px) {
+        `@media (min-width: 769px) {
             display: none;
         }`:
-        `@media (max-width: 769px) {
+        `@media (max-width: 768px) {
             display: none;
+            width: auto !important;
         }` 
+    }
+    @media (max-width: 768px) {
+        width: auto;
     }
 `;
 

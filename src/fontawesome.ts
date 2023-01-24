@@ -9,7 +9,9 @@ import {
     faLifeRing,
     faTrashCan,
     faCirclePlay,
-    faCirclePause
+    faCirclePause,
+    faBell,
+    faMoon
 } from '@fortawesome/free-regular-svg-icons';
 import { 
   faPowerOff,
@@ -18,6 +20,7 @@ import {
   faClose,
   faBars,
   faArrowLeft,
+  faUserTie
 } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
@@ -38,5 +41,8 @@ library.add(
   faTrashCan,
   faArrowLeft,
   faCirclePlay,
-  faCirclePause
+  faCirclePause,
+  faUserTie,
+  faBell,
+  faMoon
 );
