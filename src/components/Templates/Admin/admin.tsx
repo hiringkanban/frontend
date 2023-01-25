@@ -16,6 +16,7 @@ import Pagination from "../../Molecules/Pagination";
 import Box from "../../Atoms/Box";
 import FlexBox from "../../Atoms/Flexbox/flexbox";
 import Select from "../../Molecules/Select";
+import InlineList from "../../Molecules/InlineList";
 type dataT = { 
     key: string,
     title: string,
@@ -185,7 +186,10 @@ const AdminTemplate:React.FC<navbarProps> = () => {
     }
 
     const [value, setValue] = useState<string|number>('Sory by');
-
+    const breadcrumbs = [
+        { value: 'Admin', href: '#'},
+        { value: 'Jobs', href: '#'}
+    ];
     return (
         <>
             <Modal
@@ -202,6 +206,13 @@ const AdminTemplate:React.FC<navbarProps> = () => {
                 <Section left="260px">
                     <AdminNavBar />                        
                     <Container>
+                        <FlexBox margin="30px 0">
+                            <InlineList 
+                                items={breadcrumbs}
+                                breadcrumbs={true}
+                                fontSize="22px"
+                            />
+                        </FlexBox>
                         <Select 
                             width="200px"
                             options={[

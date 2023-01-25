@@ -8,7 +8,7 @@ import { useContext } from "react";
 import HideOn from "../../Atoms/HideOn";
 import { StyledAdminNav } from "./style";
 import Drodown from "../../Molecules/Drodown";
-import InlineList from "../../Atoms/InlineList/inlineList";
+import InlineList from "../../Molecules/InlineList/inlineList";
 import FlexBox from "../../Atoms/Flexbox/flexbox";
 
 const AdminNavBar = () => {
