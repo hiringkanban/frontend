@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { status } from '../../../styles/styleGuide';
+import { colors, status } from '../../../styles/styleGuide';
 import { inputProps } from "./type";
 
 interface InputStyleProps extends Omit<inputProps, 'onChange'> {
@@ -7,15 +7,15 @@ interface InputStyleProps extends Omit<inputProps, 'onChange'> {
 }
 
 const StyledInput = styled.input<InputStyleProps>`
-    width: 100%;
-    height: 3em;
+    width: ${props => props.width ? props.width : '100%'};
+    height: 2.8em;
     padding: 0.5em;
-    margin-bottom: 1.2em;
-    border: 1px solid ${props=> props.status ? status[props.status] : status['default'] };
+    border: 1px solid ${props => props.status ? status[props.status] : colors.lightGray };
     border-radius: 6px;
+    transition: 0.5s;
+    outline: none;
     :focus {
-        outline: none;
-        opacity: 0.8;
+        border: 1px solid ${status['primary']};
     }
 `;
 

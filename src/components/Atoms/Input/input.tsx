@@ -8,7 +8,8 @@ const Input:React.FC<inputProps> = (props) => {
         status,
         name,
         type,
-        placeholder
+        placeholder,
+        width
     } = props;
 
     return <StyledInput
@@ -16,6 +17,7 @@ const Input:React.FC<inputProps> = (props) => {
         type={type}
         status={status}
         placeholder={placeholder}
+        width={width}
         onChange={(e) => onChange(e)}
     />
 }

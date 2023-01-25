@@ -5,6 +5,7 @@ const StyledRow = styled.div<{gap?: number, margin?: string}>`
     flex-wrap: nowrap;
     gap: ${props => props.gap}px;
     margin: ${props => props.margin};
+    align-items: center;
 
     @media (max-width: 768px) {
         flex-wrap: wrap;

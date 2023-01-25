@@ -17,6 +17,9 @@ import Box from "../../Atoms/Box";
 import FlexBox from "../../Atoms/Flexbox/flexbox";
 import Select from "../../Molecules/Select";
 import InlineList from "../../Molecules/InlineList";
+import Row from "../../Atoms/Row";
+import Input from "../../Atoms/Input";
+import Col from "../../Atoms/Col";
 type dataT = { 
     key: string,
     title: string,
@@ -179,17 +182,77 @@ const AdminTemplate:React.FC<navbarProps> = () => {
             status: 'Active',
             actions: []
         },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: []
+        },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: []
+        },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: []
+        },
+        {
+            key: '1',
+            title: 'Backend Developer',
+            skills: ['PHP', 'C++'],
+            experiences: '02 years',
+            salary: 15000,
+            date: 'October 05, 2019',
+            status: 'Active',
+            actions: []
+        },
     ];
 
     const handleChange = (page: number): void => {
         setCurrent(page);
     }
 
-    const [value, setValue] = useState<string|number>('Sory by');
+    const [value, setValue] = useState<string|number>('Filter by');
     const breadcrumbs = [
         { value: 'Admin', href: '#'},
         { value: 'Jobs', href: '#'}
     ];
+
+    const tabelHeader = [
+        <Input 
+            placeholder="Search..."
+            onChange={() => console.log('change')}
+            width="25%"
+        /> 
+    ];
+
+    const tableFooter = [
+        <FlexBox justify="center">
+            <Pagination 
+                total={15}
+                pageSize={5}
+                current={current}
+                onChange={handleChange}
+            />
+        </FlexBox>
+    ];
+
     return (
         <>
             <Modal
@@ -213,29 +276,12 @@ const AdminTemplate:React.FC<navbarProps> = () => {
                                 fontSize="22px"
                             />
                         </FlexBox>
-                        <Select 
-                            width="200px"
-                            options={[
-                                { label: 'option 01', value: 'value 01' },
-                                { label: 'option 02', value: 'value 02' },
-                                { label: 'option 03', value: 'value 03' },
-                                { label: 'option 04', value: 'value 04' }
-                            ]}
-                            selectedValue={value}
-                            handleChange={setValue}
+                        <Table 
+                            header={tabelHeader}
+                            columns={cols}
+                            dataSource={data}
+                            footer={tableFooter}
                         />
-                        <div style={{overflowX: 'auto'}}>
-                            <Table columns={cols} dataSource={data}/>
-                        </div>
-                        <Box margin="10px 0" padding="10px">
-                            <FlexBox justify="center">
-                                <Pagination 
-                                    total={3}
-                                    pageSize={3}
-                                    current={current}
-                                    onChange={handleChange} />
-                            </FlexBox>
-                        </Box>
                     </Container>
                 </Section>
             </SideBarContext.Provider>
