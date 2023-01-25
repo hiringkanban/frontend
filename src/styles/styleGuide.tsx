@@ -2,8 +2,7 @@ export const colors = {
     primary: '#696cff',
     white: '#fff',
     gray: '#697a8d',
-    lightGray: '#f0f2f4',
-    
+    lightGray: '#d9dee3',
     green: 'rgba(54, 159, 71, 1)',
     blue: 'rgba(10, 88, 132, 1)',
     darkBlue: 'rgba(41, 47, 76, 1)',
@@ -13,7 +12,7 @@ export const colors = {
 }
 
 export const status:{[key:string]: string} = {
-    default: colors.primary,
+    primary: colors.primary,
     success: colors.green,
     info: colors.blue,
     danger: colors.red,

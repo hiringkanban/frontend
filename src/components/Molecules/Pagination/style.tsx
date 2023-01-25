@@ -7,7 +7,7 @@ export const StyledPagination = styled.ul`
 `;
 
 export const StyledPaginationLink = styled.li<{active?: boolean}>`
-    background-color: ${props => props.active ? colors.primary : colors.lightGray };
+    background-color: ${props => props.active ? colors.primary : '#f5f5f5' };
     margin-left: 3px;
     padding: 5px;
     border-radius: ${borderRadius};

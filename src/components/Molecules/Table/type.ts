@@ -13,7 +13,9 @@ export interface dataSourceT {
 
 export interface tableProps {
     columns: columnsT[],
-    dataSource: dataSourceT[]
+    dataSource: dataSourceT[],
+    header?: React.ReactNode,
+    footer?: React.ReactNode
 }
 
 export interface rowCellprops {

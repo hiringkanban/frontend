@@ -1,5 +1,19 @@
 import styled from "styled-components";
-import { colors, fontWeight } from "../../../styles/styleGuide";
+import { fontWeight } from "../../../styles/styleGuide";
+
+export const TableWraper = styled.div`
+   overflow-x: 'auto';
+`;
+
+export const TableHeader = styled.div`
+    padding: 15px;
+    background-color: #fff;
+`;
+
+export const TableFooter = styled.div`
+    padding: 15px;
+    background-color: #fff;
+`;
 
 export const StyledTable = styled.table`
     border-collapse: collapse;

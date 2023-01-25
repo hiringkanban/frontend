@@ -12,7 +12,7 @@ export const StyledSelect = styled.div<{width:string}>`
     width: ${props => props.width};
 
     & button {
-        background-color: #f5f5f5;
+        background-color: #fff;
     }
 `;
 

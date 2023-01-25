@@ -6,7 +6,7 @@ interface headerProps {
     columns: columnsT[]
 }
 
-const TableHeader = ({ columns }: headerProps) => {
+const TableHead = ({ columns }: headerProps) => {
 
     return (
         <TableRowItem>
@@ -17,4 +17,4 @@ const TableHeader = ({ columns }: headerProps) => {
     )
 }
 
-export default TableHeader;
+export default TableHead;

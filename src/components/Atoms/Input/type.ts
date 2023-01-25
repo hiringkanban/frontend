@@ -5,6 +5,7 @@ export interface inputProps {
     name?: string,
     type?: string,
     status?: string,
-    placeholder?: string
+    placeholder?: string,
+    width?: string,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
