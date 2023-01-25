@@ -2,22 +2,40 @@
 import { tableProps } from "./type";
 import { 
     StyledTable,
+    TableWraper,
+    TableHeader,
+    TableFooter
 } from "./style";
 
-import TableHeader from "./tableHeader";
+import TableHead from "./tableHead";
 import TableRow from "./tableRow";
 
-const Table:React.FC<tableProps> = ({ columns, dataSource }) => {
+const Table:React.FC<tableProps> = (props) => {
+
+    const { 
+        columns,
+        dataSource,
+        header,
+        footer
+     } = props;
    
     return (
-        <StyledTable>
-            <thead>
-                <TableHeader columns={columns} />
-            </thead>
-            <tbody>
-                <TableRow dataSource={dataSource} columns={columns} />
-            </tbody>
-        </StyledTable>
+        <TableWraper>
+            <TableHeader>
+                {header}
+            </TableHeader>
+            <StyledTable>
+                <thead>
+                    <TableHead columns={columns} />
+                </thead>
+                <tbody>
+                    <TableRow dataSource={dataSource} columns={columns} />
+                </tbody>
+            </StyledTable>
+            <TableFooter>
+                {footer}
+            </TableFooter>
+        </TableWraper>
     );
 }
 
