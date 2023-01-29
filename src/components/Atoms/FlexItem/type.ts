@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export interface flexItemProps {
-    flex?: number | string,
-    children: React.ReactNode
+export interface FlexItemProps {
+  flex?: number | string;
+  children: React.ReactNode;
 }

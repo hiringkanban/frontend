@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const StyledAdminNav =  styled.nav`
-    margin: 12px 0 25px 0;
+const StyledAdminNav = styled.nav`
+  margin: 12px 0 25px 0;
 `;
+export default StyledAdminNav;

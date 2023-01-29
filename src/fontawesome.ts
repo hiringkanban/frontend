@@ -1,26 +1,26 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { 
-    faClipboard,
-    faUser,
-    faEnvelope,
-    faBuilding,
-    faIdCard,
-    faSun,
-    faLifeRing,
-    faTrashCan,
-    faCirclePlay,
-    faCirclePause,
-    faBell,
-    faMoon
+import {
+  faClipboard,
+  faUser,
+  faEnvelope,
+  faBuilding,
+  faIdCard,
+  faSun,
+  faLifeRing,
+  faTrashCan,
+  faCirclePlay,
+  faCirclePause,
+  faBell,
+  faMoon,
 } from '@fortawesome/free-regular-svg-icons';
-import { 
+import {
   faPowerOff,
   faChevronDown,
   faFilter,
   faClose,
   faBars,
   faArrowLeft,
-  faUserTie
+  faUserTie,
 } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 

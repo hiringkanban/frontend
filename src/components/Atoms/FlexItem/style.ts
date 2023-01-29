@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { flexItemProps } from "./type";
+import styled from 'styled-components';
+import { FlexItemProps } from './type';
 
-const StyledFlexItem = styled.div<flexItemProps>`
-    flex: ${props => props.flex};
+const StyledFlexItem = styled.div<FlexItemProps>`
+  flex: ${(props) => props.flex};
 `;
 
 export default StyledFlexItem;

@@ -1,20 +1,18 @@
-import { TableRowItem } from "./style";
-import { columnsT } from "./type";
-import { TableHeaderCell } from "./style";
+import { TableRowItem, TableHeaderCell } from './style';
+import { ColumnsT } from './type';
 
-interface headerProps {
-    columns: columnsT[]
+interface HeaderProps {
+  columns: ColumnsT[];
 }
 
-const TableHead = ({ columns }: headerProps) => {
-
-    return (
-        <TableRowItem>
-            { columns.map(({title, key}) =>
-                <TableHeaderCell key={key}>{title}</TableHeaderCell> 
-            )}
-        </TableRowItem>
-    )
-}
+const TableHead = ({ columns }: HeaderProps) => {
+  return (
+    <TableRowItem>
+      {columns.map(({ title, key }) => (
+        <TableHeaderCell key={key}>{title}</TableHeaderCell>
+      ))}
+    </TableRowItem>
+  );
+};
 
 export default TableHead;

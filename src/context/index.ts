@@ -1,10 +1,12 @@
-import { createContext } from "react";
-type contextT = {
-    toggle: boolean
-    setToggle: (c: boolean) => void
-}
+import { createContext } from 'react';
 
-export const SideBarContext = createContext<contextT>({
-    toggle: false, 
-    setToggle: (c: boolean) => {}
+type ContextT = {
+  toggle: boolean;
+  setToggle: (c: boolean) => void;
+};
+
+const SideBarContext = createContext<ContextT>({
+  toggle: false,
+  setToggle: () => {},
 });
+export default SideBarContext;

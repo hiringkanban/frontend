@@ -1,22 +1,14 @@
-import StyledRow from "./style";
-import { rowProps } from "./type";
+import StyledRow from './style';
+import { RowProps } from './type';
 
-const Row:React.FC<rowProps> = (props) => {
+const Row: React.FC<RowProps> = (props) => {
+  const { children, margin, gap } = props;
 
-    const {
-        children,
-        margin,
-        gap
-    } = props;
-
-    return (
-        <StyledRow 
-            gap={gap}
-            margin={margin}
-        >
-            {children}
-        </StyledRow>
-    )
-}
+  return (
+    <StyledRow gap={gap} margin={margin}>
+      {children}
+    </StyledRow>
+  );
+};
 
 export default Row;
