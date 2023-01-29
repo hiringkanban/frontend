@@ -1,18 +1,14 @@
-import StyledCol from "./style"
-import { colProps } from "./type"
+import StyledCol from './style';
+import { ColProps } from './type';
 
-const Col:React.FC<colProps> = (props) => {
-    const {
-        children,
-        span,
-        offset
-    } = props;
+const Col: React.FC<ColProps> = (props) => {
+  const { children, span, offset } = props;
 
-    return (
-        <StyledCol span={span} offset={offset}>
-            {children}
-        </StyledCol>
-    )
-}
+  return (
+    <StyledCol span={span} offset={offset}>
+      {children}
+    </StyledCol>
+  );
+};
 
 export default Col;

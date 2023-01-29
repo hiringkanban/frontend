@@ -1,24 +1,25 @@
-import React from "react";
+import React from 'react';
 
-export interface columnsT {
-    title: string | number,
-    key: string | number,
-    dataIndex: string,
-    render?: (column: columnsT, item: dataSourceT) => React.ReactNode
+export interface ColumnsT {
+  title: string | number;
+  key: string | number;
+  dataIndex: string;
+  render?: (column: ColumnsT, item: DataSourceT) => unknown;
 }
 
-export interface dataSourceT {
-    [key: string]: any
+export interface DataSourceT {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
 }
 
-export interface tableProps {
-    columns: columnsT[],
-    dataSource: dataSourceT[],
-    header?: React.ReactNode,
-    footer?: React.ReactNode
+export interface TableProps {
+  columns: ColumnsT[];
+  dataSource: DataSourceT[];
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
 }
 
-export interface rowCellprops {
-    item: dataSourceT,
-    column: columnsT
+export interface RowCellprops {
+  item: DataSourceT;
+  column: ColumnsT;
 }

@@ -1,11 +1,11 @@
-type menuT = {
-    value: string | number | React.ReactNode,
-    href: string,
-    icon?: React.ReactNode
+type MenuT = {
+  value: string | number | React.ReactNode;
+  href: string;
+  icon?: React.ReactNode;
 }[];
 
-export interface navbarProps {
-    leftMenu?: menuT,
-    rightMenu?: menuT,
-    logo?: React.ReactNode
+export interface NavbarProps {
+  leftMenu?: MenuT;
+  rightMenu?: MenuT;
+  logo?: React.ReactNode;
 }

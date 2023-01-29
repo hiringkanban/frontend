@@ -1,34 +1,33 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 const StyledSignIn = styled.div`
-    width: 30%;
-    margin: 0 auto;
-    margin-top: 7.5em;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 7.5em;
 
-    & form {
-        display: flex;
-        flex-direction: column;
+  & form {
+    display: flex;
+    flex-direction: column;
 
-        & button {
-            align-self: center;
-        }
+    & button {
+      align-self: center;
     }
+  }
 
-    & h1 {
-        font-weight: 100;
-        color: rgb(83 87 104);
-        margin-bottom: 20px;
-    }
+  & h1 {
+    font-weight: 100;
+    color: rgb(83 87 104);
+    margin-bottom: 20px;
+  }
 
-    & form {
-        margin-bottom: 30px;
-    }
+  & form {
+    margin-bottom: 30px;
+  }
 
-    @media (max-width: 768px) {
-        width: 80%;
-        margin-top: 1em;
-    }
+  @media (max-width: 768px) {
+    width: 80%;
+    margin-top: 1em;
+  }
 `;
 
 export default StyledSignIn;

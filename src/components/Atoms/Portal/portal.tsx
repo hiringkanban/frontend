@@ -1,22 +1,22 @@
-import React from "react";
-import { useEffect, ReactNode } from "react";
-import { createPortal } from "react-dom";
+import React, { useEffect, ReactNode } from 'react';
 
-type portalT = {
-    children: ReactNode
-}
+import { createPortal } from 'react-dom';
 
-const Portal:React.FC<portalT> = ({children}) => {
-    const mount = document.getElementById('portal-root');
-    const el = document.createElement('div');
+type PortalT = {
+  children: ReactNode;
+};
 
-    useEffect(() => {
-        mount?.appendChild(el);
+const Portal: React.FC<PortalT> = ({ children }) => {
+  const mount = document.getElementById('portal-root');
+  const el = document.createElement('div');
 
-        return () => mount?.removeChild(el) as void;
-    }, [el, mount]);
+  useEffect(() => {
+    mount?.appendChild(el);
 
-    return createPortal(children, el);
-}
+    return () => mount?.removeChild(el) as void;
+  }, [el, mount]);
+
+  return createPortal(children, el);
+};
 
 export default Portal;

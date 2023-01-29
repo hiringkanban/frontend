@@ -1,11 +1,10 @@
-import React from "react"
-
-export interface listProps {
-    items: {
-        value: string | number | React.ReactNode,
-        href: string,
-        onClick?: () => void
-    }[],
-    fontSize?: string,
-    breadcrumbs?: boolean
+export interface ListProps {
+  items: {
+    id?: number;
+    value: string | number | React.ReactNode;
+    href: string;
+    onClick?: () => void;
+  }[];
+  fontSize?: string;
+  breadcrumbs?: boolean;
 }

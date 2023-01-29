@@ -1,14 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { formProps } from "./type";
-import StyledForm from "./style";
+import { FormProps } from './type';
+import StyledForm from './style';
 
-    
-const Form:React.FC<formProps> = ({children, onSubmit}) => {
-
-    return <StyledForm onSubmit={onSubmit}>
-        {children}
-    </StyledForm>
-}
+const Form: React.FC<FormProps> = ({ children, onSubmit }) => {
+  return <StyledForm onSubmit={onSubmit}>{children}</StyledForm>;
+};
 
 export default Form;

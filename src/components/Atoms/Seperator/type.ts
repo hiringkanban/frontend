@@ -1,4 +1,4 @@
-export interface seperatorProps {
-    width: string,
-    height?: number,
+export interface SeperatorProps {
+  width: string;
+  height?: number;
 }

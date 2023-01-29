@@ -1,8 +1,6 @@
-import React from "react";
-
-export interface paginationProps {
-    total: number,
-    current: number,
-    pageSize: number,
-    onChange: (page: number) => void
+export interface PaginationProps {
+  total: number;
+  current: number;
+  pageSize: number;
+  onChange: (page: number) => void;
 }

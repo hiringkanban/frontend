@@ -1,11 +1,8 @@
-import StyledSeperator from "./style"
-import { seperatorProps } from "./type"
+import StyledSeperator from './style';
+import { SeperatorProps } from './type';
 
-const Seperator:React.FC<seperatorProps> = ({width, height = 0.5}) => {
-    return <StyledSeperator
-        width={width}
-        height={height}
-    />
-}
+const Seperator: React.FC<SeperatorProps> = ({ width, height = 0.5 }) => {
+  return <StyledSeperator width={width} height={height} />;
+};
 
 export default Seperator;

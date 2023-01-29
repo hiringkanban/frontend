@@ -1,20 +1,20 @@
-import { TableRowItem } from "./style";
-import TableRowCell from "./tableRowCell";
-import { tableProps } from "./type";
+import { TableRowItem } from './style';
+import TableRowCell from './tableRowCell';
+import { TableProps } from './type';
 
-const TableRow = ({ dataSource, columns }: tableProps) => {
-
-    return (
-        <>
-            {dataSource.map((item) =>
-                <TableRowItem>
-                    {columns.map((column) => 
-                        <TableRowCell item={item} column={column} />
-                    )}
-                </TableRowItem>
-            )}
-        </>
-    )
-}
+const TableRow = ({ dataSource, columns }: TableProps) => {
+  return (
+    <>
+      {dataSource.map((item) => (
+        // eslint-disable-next-line react/jsx-key
+        <TableRowItem>
+          {columns.map((column) => (
+            <TableRowCell key={column.key} item={item} column={column} />
+          ))}
+        </TableRowItem>
+      ))}
+    </>
+  );
+};
 
 export default TableRow;
