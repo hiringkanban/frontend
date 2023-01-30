@@ -1,0 +1,53 @@
+name: CI
+
+on: push
+jobs:
+  lint-format:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+      node: [12]
+    steps:
+      - name: Checkout Commit
+      uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+      - name: Run lint
+      run: |
+        npm run lint
+      - name: Run prettier
+      run: |
+        npm run format
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+      node: [12]
+    steps:
+      - name: Checkout Commit
+      uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+      - name: Run test
+      run: |
+        npm run test
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+      node: [12]
+    needs: [type-check, unit-test]
+    steps:
+      - name: Checkout Commit
+      uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+      - name: Run build
+      run: |
+        npm run build
