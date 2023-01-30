@@ -2,24 +2,30 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styles/globalStyles';
 
-import { Admin, Home, Signin, Signup } from './components/Pages';
+import { Admin, Home, Signin, Signup, NotFound } from './components/Pages';
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="signin" element={<Signin />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="admin" element={<Admin />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="signin" element={<Signin />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </>
   );
 }
 
-export default App;
+const WrapperApp = () => {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+};
+export default WrapperApp;
