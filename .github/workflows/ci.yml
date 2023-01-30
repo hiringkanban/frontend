@@ -6,48 +6,48 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [12]
+        node: [10.x, 12.x, 14.x]
     steps:
       - name: Checkout Commit
-      uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
       - name: Run lint
-      run: |
-        npm run lint
+        run: |
+          npm run lint
       - name: Run prettier
-      run: |
-        npm run format
+        run: |
+          npm run format
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [12]
+        node: [10.x, 12.x, 14.x]
     steps:
       - name: Checkout Commit
-      uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
       - name: Run test
-      run: |
-        npm run test
+        run: |
+          npm run test
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [12]
-    needs: [type-check, unit-test]
+        node: [10.x, 12.x, 14.x]
+    needs: [lint-format, test]
     steps:
       - name: Checkout Commit
-      uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
       - name: Run build
-      run: |
-        npm run build
+        run: |
+          npm run build
