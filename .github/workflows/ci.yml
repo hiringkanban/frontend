@@ -16,7 +16,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Install deps
         run: |
-          npm install
+          npm ci
       - name: Run lint
         run: |
           npm run lint
@@ -37,7 +37,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: Install deps
         run: |
-          npm install
+          npm ci
       - name: Run test
         run: |
           npm run test
@@ -58,7 +58,7 @@ jobs:
         run: rm -rf node_modules/
       - name: Install deps
         run: |
-          npm install
+          npm ci
       - name: Run build
         run: |
           npm run build
