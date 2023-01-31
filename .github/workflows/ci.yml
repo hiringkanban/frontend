@@ -1,18 +1,22 @@
 name: CI
+
 on: push
 jobs:
   lint-format:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [16]
+        node: [14.x, 16.x]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-        node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node }}
+      - name: Install deps
+        run: |
+          npm install
       - name: Run lint
         run: |
           npm run lint
@@ -23,14 +27,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [16]
+        node: [14.x, 16.x]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-        node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node }}
+      - name: Install deps
+        run: |
+          npm install
       - name: Run test
         run: |
           npm run test
@@ -38,15 +45,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [12]
-    needs: [type-check, unit-test]
+        node: [14.x, 16.x]
+    needs: [lint-format, test]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-        node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node }}
       - name: Run build
         run: |
           npm run build
