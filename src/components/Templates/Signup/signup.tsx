@@ -1,7 +1,7 @@
 import { Signup, NavBar, Container } from '../../index';
-import { navbarProps } from '../nabvarType';
+import { NavbarProps } from '../nabvarType';
 
-const SignupTemplate: React.FC<navbarProps> = ({ leftMenu, rightMenu, logo }) => {
+const SignupTemplate: React.FC<NavbarProps> = ({ leftMenu, rightMenu, logo }) => {
   return (
     <>
       <NavBar leftMenu={leftMenu} rightMenu={rightMenu} logo={logo} />
