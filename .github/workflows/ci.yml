@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [14.x, 16.x]
+        node: [16.x]
     steps:
       - name: Checkout Commit
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
@@ -27,10 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [14.x, 16.x]
+        node: [16.x]
     steps:
       - name: Checkout Commit
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
@@ -45,11 +45,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [14.x, 16.x]
+        node: [16.x]
     needs: [lint-format, test]
     steps:
       - name: Checkout Commit
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
