@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [12]
+      node: [16.x]
     steps:
       - name: Checkout Commit
       uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [12]
+      node: [16.x]
     steps:
       - name: Checkout Commit
       uses: actions/checkout@v2
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-      node: [12]
+      node: [16.x]
     needs: [type-check, unit-test]
     steps:
       - name: Checkout Commit
