@@ -14,8 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
-    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "baseUrl": "."
   },
   "include": ["src", ".eslintrc.cjs", "vitest.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
