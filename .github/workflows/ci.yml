@@ -62,3 +62,5 @@ jobs:
       - name: Run build
         run: |
           npm run build
+          env:
+            CI: false
