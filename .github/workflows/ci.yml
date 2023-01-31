@@ -58,7 +58,7 @@ jobs:
         run: rm -rf node_modules/
       - name: Install deps
         run: |
-          npm ci
+          npm ci --production
       - name: Run build
         run: |
           npm run build
