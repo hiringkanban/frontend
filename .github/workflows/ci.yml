@@ -54,6 +54,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+      - name: remove node_modules
+        run: rm -rf node_modules/
       - name: Install deps
         run: |
           npm install
