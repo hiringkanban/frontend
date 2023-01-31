@@ -14,6 +14,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
+      - name: Install deps
+      - run: npm install
       - name: Run lint
         run: |
           npm run lint
@@ -32,6 +34,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
+      - name: Install deps
+      - run: npm install    
       - name: Run test
         run: |
           npm run test
