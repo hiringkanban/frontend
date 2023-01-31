@@ -15,8 +15,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "baseUrl": "."
   },
-  "include": ["src", ".eslintrc.cjs", "vitest.config.ts"],
+  "include": ["src","src/**/*.ts", "tests/**/*.ts",".eslintrc.cjs", "vitest.config.ts"],
+  "exclude": ["node_modules", ".vscode"]
   "references": [{ "path": "./tsconfig.node.json" }]
 }
