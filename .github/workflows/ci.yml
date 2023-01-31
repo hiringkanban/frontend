@@ -41,26 +41,3 @@ jobs:
       - name: Run test
         run: |
           npm run test
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [16.x]
-    needs: [lint-format, test]
-    steps:
-      - name: Checkout Commit
-        uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-      - name: remove node_modules
-        run: rm -rf node_modules/
-      - name: Install deps
-        run: |
-          npm ci --production
-      - name: Run build
-        run: |
-          npm run build
-          env:
-            CI: false
