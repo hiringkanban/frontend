@@ -3,23 +3,12 @@ import styled from 'styled-components';
 export const StyledNav = styled.header`
   display: flex;
   justify-content: space-between;
+  background-color: #fff;
   align-items: center;
   height: 72px;
 
   @media (max-width: 768px) {
     display: block;
-  }
-
-  @media (min-width: 769px) {
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 60px;
-      height: 5px;
-      width: 100%;
-      box-shadow: 0px 4px 4px rgb(29 140 242 / 8%);
-    }
   }
 `;
 

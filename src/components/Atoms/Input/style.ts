@@ -8,7 +8,7 @@ interface InputStyleProps extends Omit<InputProps, 'onChange'> {
 
 const StyledInput = styled.input<InputStyleProps>`
   width: ${(props) => (props.width ? props.width : '100%')};
-  height: 2.8em;
+  height: 3em;
   padding: 0.5em;
   border: 1px solid ${(props) => (props.status ? status[props.status] : colors.lightGray)};
   border-radius: 6px;
@@ -16,6 +16,9 @@ const StyledInput = styled.input<InputStyleProps>`
   outline: none;
   :focus {
     border: 1px solid ${status.primary};
+  }
+  ::placeholder {
+    color: ${colors.lightGray};
   }
 `;
 
