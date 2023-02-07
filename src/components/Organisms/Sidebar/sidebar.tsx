@@ -18,7 +18,7 @@ const SideBar = () => {
     },
     {
       value: 'Condidats',
-      href: '#',
+      href: 'condidats',
       icon: <FontAwesomeIcon icon={['far', 'user']} />,
     },
     {
