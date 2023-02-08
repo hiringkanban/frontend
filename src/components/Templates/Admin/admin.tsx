@@ -5,16 +5,19 @@ import Section from '../../Atoms/Section';
 import Container from '../../Atoms/Container';
 import AdminNavBar from '../../Organisms/AdminNavBar';
 import SideBarContext from '../../../context';
+import FlexBox from '../../Atoms/Flexbox';
+import InlineList from '../../Molecules/InlineList';
 
 const AdminWrapper = styled.div`
   background-color: #f5f5f9;
 `;
 
-interface AdminProps {
+interface AdminTemplateProps {
   children: React.ReactNode;
+  breadcrumbs: { value: string; href: string }[];
 }
 
-const AdminTemplate: React.FC<AdminProps> = ({ children }) => {
+const AdminTemplate: React.FC<AdminTemplateProps> = ({ children, breadcrumbs }) => {
   const [toggle, setToggle] = useState(false);
   const sideBartoggle = useMemo(() => ({ toggle, setToggle }), [toggle]);
 
@@ -24,7 +27,12 @@ const AdminTemplate: React.FC<AdminProps> = ({ children }) => {
         <SideBar />
         <Section left="260px">
           <AdminNavBar />
-          <Container>{children}</Container>
+          <Container>
+            <FlexBox margin="30px 0">
+              <InlineList items={breadcrumbs} breadcrumbs fontSize="22px" />
+            </FlexBox>
+            {children}
+          </Container>
         </Section>
       </SideBarContext.Provider>
     </AdminWrapper>

@@ -9,7 +9,6 @@ import Modal from '../../Molecules/Modal';
 import Drodown from '../../Molecules/Drodown';
 import Pagination from '../../Molecules/Pagination';
 import FlexBox from '../../Atoms/Flexbox/flexbox';
-import InlineList from '../../Molecules/InlineList';
 
 const breadcrumbs = [
   { value: 'Admin', href: '#' },
@@ -243,10 +242,7 @@ const Admin = () => {
       >
         Are you sure want to remove <b>{activeModal.name}</b> job?
       </Modal>
-      <AdminTemplate>
-        <FlexBox margin="30px 0">
-          <InlineList items={breadcrumbs} breadcrumbs fontSize="22px" />
-        </FlexBox>
+      <AdminTemplate breadcrumbs={breadcrumbs}>
         <Table header={tabelHeader} columns={cols} dataSource={data} footer={tableFooter} />
       </AdminTemplate>
     </>
