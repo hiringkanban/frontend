@@ -4,23 +4,22 @@ import BoardItem from '../BoardItem';
 import StyledBoardColumn from './style';
 
 interface BoardColProps {
-  column: { id: string; name: string };
-  items: { id: string; title: string; col: string }[];
+  column: { title: string; items: string[] };
+  items: {id: string, name: string}[];
+  id: string;
 }
 
-const BoardCol: React.FC<BoardColProps> = ({ column, items }) => {
+const BoardCol: React.FC<BoardColProps> = ({ column, id, items }) => {
+  console.log(items);
   return (
     <StyledBoardColumn>
-      <h4>{column.name}</h4>
-      <Droppable droppableId={column.id}>
+      <h4>{column.title}</h4>
+      <Droppable droppableId={id}>
         {(provided) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
           <div ref={provided.innerRef} {...provided.droppableProps}>
-            {items
-              .filter((item) => item.col === column.id)
-              .map((item, idx) => (
-                <BoardItem key={item.id} item={item} index={idx} />
-              ))}
+            {items.map((item, index) => <BoardItem key={item.id} item={item} index={index} /> )}
+            {provided.placeholder}
           </div>
         )}
       </Droppable>

@@ -5,8 +5,7 @@ import StyledBoardItem from './style';
 
 type ItemT = {
   id: string;
-  title: string;
-  col: string;
+  name: string;
 };
 
 interface BoardProps {
@@ -23,7 +22,7 @@ const BoardItem: React.FC<BoardProps> = ({ item, index }) => {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          {item.title}
+          {item.name}
         </StyledBoardItem>
       )}
     </Draggable>
