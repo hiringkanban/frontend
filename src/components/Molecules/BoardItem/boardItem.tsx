@@ -1,30 +1,32 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { useDrag } from 'react-dnd';
+import { Draggable } from 'react-beautiful-dnd';
+import StyledBoardItem from './style';
+
+type ItemT = {
+  id: string;
+  title: string;
+  col: string;
+};
 
 interface BoardProps {
-  title: string;
-  item: {
-    id: number;
-    title: string;
-    col: string;
-  };
+  item: ItemT;
+  index: number;
 }
 
-const BoardItem: React.FC<BoardProps> = ({ title, item }) => {
-  const [{ isDragging }, drag] = useDrag({
-    type: 'Item',
-    item: { ...item },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
-
-  const opacity = isDragging ? 0.4 : 1;
-
+const BoardItem: React.FC<BoardProps> = ({ item, index }) => {
   return (
-    <div ref={drag} style={{ opacity }}>
-      {title}
-    </div>
+    <Draggable key={item.id} draggableId={item.id} index={index}>
+      {(provided) => (
+        <StyledBoardItem
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          {item.title}
+        </StyledBoardItem>
+      )}
+    </Draggable>
   );
 };
 

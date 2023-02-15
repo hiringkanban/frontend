@@ -1,12 +1,8 @@
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 import { useState } from 'react';
-import Box from '../../Atoms/Box';
-import Col from '../../Atoms/Col';
+import { DragDropContext } from 'react-beautiful-dnd';
 import Row from '../../Atoms/Row';
 import AdminTemplate from '../../Templates/Admin';
 import BoardCol from '../../Molecules/BoardCol';
-import BoardItem from '../../Molecules/BoardItem';
 
 const breadcrumbs = [
   { value: 'Admin', href: '#' },
@@ -14,57 +10,47 @@ const breadcrumbs = [
 ];
 
 const BoardCols = [
-  { id: 1, name: 'All' },
-  { id: 2, name: 'Accepted' },
-  { id: 3, name: 'Tech interview 01' },
-  { id: 3, name: 'interview 02' },
+  { id: 'col-01', name: 'All' },
+  { id: 'col-02', name: 'Accepted' },
+  { id: 'col-03', name: 'Tech interview 01' },
+  { id: 'col-04', name: 'interview 02' },
 ];
 
 const BoardsItems = [
-  { id: 1, title: 'bilal dif', col: 'All' },
-  { id: 2, title: 'Sif Beladel', col: 'All' },
-  { id: 3, title: 'Lackder', col: 'All' },
-  { id: 4, title: 'Ameir', col: 'All' },
+  { id: '1', title: 'bilal dif', col: 'col-01' },
+  { id: '2', title: 'Sif Beladel', col: 'col-01' },
+  { id: '3', title: 'Lackder', col: 'col-01' },
+  { id: '4', title: 'Ameir', col: 'col-01' },
 ];
-
-type ItemT = {
-  id: number;
-  title: string;
-  col: string;
-};
 
 const Condidats = () => {
   const [items, setIems] = useState(BoardsItems);
 
-  const onDrop = (item: ItemT, title: string) => {
-    setIems((prevState) => {
-      const newItems = prevState.filter((i) => i.id !== item.id).concat({ ...item, col: title });
-      return [...newItems];
-    });
+  const ondragEnd = (result: any) => {
+    console.log(result);
+    const { source, destination, draggableId } = result;
+    const newItems = Array.from(items);
+    if (source.droppableId === destination.droppableId) {
+      newItems.splice(destination.index, 0, newItems.splice(source.index, 1)[0]);
+      setIems(newItems);
+      return;
+    }
+
+    newItems[source.index].col = destination.droppableId;
+    setIems(newItems);
   };
+  console.log(items);
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <AdminTemplate breadcrumbs={breadcrumbs}>
+    <AdminTemplate breadcrumbs={breadcrumbs}>
+      <DragDropContext onDragEnd={ondragEnd}>
         <Row gap={15}>
           {BoardCols.map((board) => (
-            <Col key={board.id} span={3}>
-              <Box>
-                <BoardCol title={board.name} onDrop={onDrop}>
-                  {items
-                    .filter((item) => item.col === board.name)
-                    .map((item) => (
-                      <Box key={item.id} margin="10px 0">
-                        <BoardItem title={item.title} item={item} />
-                      </Box>
-                    ))}
-                </BoardCol>
-              </Box>
-            </Col>
+            <BoardCol key={board.id} column={board} items={items} />
           ))}
         </Row>
-      </AdminTemplate>
-    </DndProvider>
+      </DragDropContext>
+    </AdminTemplate>
   );
 };
 
