@@ -12,36 +12,43 @@ const SideBar = () => {
 
   const leftMenu = [
     {
+      id: 1,
       value: 'Jobs',
       href: '#',
       icon: <FontAwesomeIcon icon={['far', 'clipboard']} />,
     },
     {
+      id: 2,
       value: 'Condidats',
       href: 'condidats',
       icon: <FontAwesomeIcon icon={['far', 'user']} />,
     },
     {
+      id: 3,
       value: 'Email system',
       href: '#',
       icon: <FontAwesomeIcon icon={['far', 'envelope']} />,
     },
     {
+      id: 4,
       value: 'Rols',
       href: '#',
       icon: <FontAwesomeIcon icon={['far', 'id-card']} />,
     },
     {
+      id: 5,
       value: 'Membres',
       href: '#',
       icon: <FontAwesomeIcon icon={['far', 'building']} />,
     },
     {
+      id: 6,
       value: 'Settings',
       href: '#',
       icon: <FontAwesomeIcon icon={['far', 'sun']} />,
     },
     {
+      id: 7,
       value: 'Help',
       href: '#',
       icon: <FontAwesomeIcon icon={['far', 'life-ring']} />,

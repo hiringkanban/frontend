@@ -14,7 +14,7 @@ const AdminWrapper = styled.div`
 
 interface AdminTemplateProps {
   children: React.ReactNode;
-  breadcrumbs: { value: string; href: string }[];
+  breadcrumbs: { id: number; value: string; href: string }[];
 }
 
 const AdminTemplate: React.FC<AdminTemplateProps> = ({ children, breadcrumbs }) => {

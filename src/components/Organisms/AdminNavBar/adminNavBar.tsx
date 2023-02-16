@@ -28,14 +28,15 @@ const AdminNavBar = () => {
   ];
 
   const leftAdminNav = [
-    { value: 'Home', href: '#' },
-    { value: 'Contact', href: '#' },
+    { id: 1, value: 'Home', href: '#' },
+    { id: 2, value: 'Contact', href: '#' },
   ];
 
   const rightMenu = [
-    { value: <FontAwesomeIcon icon={['far', 'bell']} />, href: '#' },
-    { value: <FontAwesomeIcon icon={['far', 'moon']} />, href: '#' },
+    { id: 1, value: <FontAwesomeIcon icon={['far', 'bell']} />, href: '#' },
+    { id: 2, value: <FontAwesomeIcon icon={['far', 'moon']} />, href: '#' },
     {
+      id: 3,
       value: <Drodown menu={actions} name={<FontAwesomeIcon icon={['fas', 'user-tie']} />} />,
       href: '#',
     },
