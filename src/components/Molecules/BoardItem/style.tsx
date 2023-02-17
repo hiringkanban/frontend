@@ -1,11 +1,31 @@
 import styled from 'styled-components';
-import { borderRadius } from '../../../styles/styleGuide';
 
-const StyledBoardItem = styled.div`
+export const StyledBoardItem = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 10px;
-  background-color: #f5f5f5;
-  border: 1px solid gray;
-  border-radius: ${borderRadius};
+  background-color: #fff;
+  border: 1px solid #ddd;
   margin-bottom: 10px;
+
+  & h4 {
+    line-height: 1;
+  }
+  & h5 {
+    font-weight: 300;
+  }
 `;
-export default StyledBoardItem;
+
+export const StyledDetail = styled.div`
+  display: flex;
+  font-size: 12px;
+
+  & div {
+    margin: 10px 10px 0 0;
+  }
+`;
+
+/*
+export const DetailLocation = styled.div`
+
+`; */

@@ -9,7 +9,6 @@ interface BoardColProps {
 }
 
 const BoardCol: React.FC<BoardColProps> = ({ column, id, items }) => {
-  // console.log(items);
   return (
     <StyledBoardColumn>
       <h4>{column.title}</h4>

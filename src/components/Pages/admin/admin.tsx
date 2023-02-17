@@ -11,8 +11,8 @@ import Pagination from '../../Molecules/Pagination';
 import FlexBox from '../../Atoms/Flexbox/flexbox';
 
 const breadcrumbs = [
-  { value: 'Admin', href: '#' },
-  { value: 'Jobs', href: '#' },
+  { id: 1, value: 'Admin', href: '#' },
+  { id: 2, value: 'Jobs', href: '#' },
 ];
 
 type DataT = {
