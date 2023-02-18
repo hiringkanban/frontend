@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Droppable } from 'react-beautiful-dnd';
 import BoardItem from '../BoardItem';
-import StyledBoardColumn from './style';
+import { StyledBoardColumn, BoardColumnBody } from './style';
 
 interface BoardColProps {
   column: { title: string; items: string[] };
@@ -11,16 +12,20 @@ interface BoardColProps {
 const BoardCol: React.FC<BoardColProps> = ({ column, id, items }) => {
   return (
     <StyledBoardColumn>
-      <h4>{column.title}</h4>
+      <h3>{column.title}</h3>
       <Droppable droppableId={id}>
-        {(provided) => (
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          <div ref={provided.innerRef} {...provided.droppableProps}>
+        {(provided, snapshot) => (
+          <BoardColumnBody
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            isDraggingOver={snapshot.isDraggingOver}
+            isScroll={items.length >= 5}
+          >
             {items.map((item, index) => {
               return <BoardItem key={item.id} item={item} index={index} />;
             })}
             {provided.placeholder}
-          </div>
+          </BoardColumnBody>
         )}
       </Droppable>
     </StyledBoardColumn>

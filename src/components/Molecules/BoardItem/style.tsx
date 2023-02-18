@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../../styles/styleGuide';
 
 export const StyledBoardItem = styled.div`
   display: flex;
@@ -10,6 +11,7 @@ export const StyledBoardItem = styled.div`
 
   & h4 {
     line-height: 1;
+    color: ${colors.gray};
   }
   & h5 {
     font-weight: 300;
