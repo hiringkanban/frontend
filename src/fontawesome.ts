@@ -12,6 +12,7 @@ import {
   faCirclePause,
   faBell,
   faMoon,
+  faClock,
 } from '@fortawesome/free-regular-svg-icons';
 import {
   faPowerOff,
@@ -21,6 +22,7 @@ import {
   faBars,
   faArrowLeft,
   faUserTie,
+  faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
@@ -44,5 +46,7 @@ library.add(
   faCirclePause,
   faUserTie,
   faBell,
-  faMoon
+  faMoon,
+  faClock,
+  faLocationDot
 );

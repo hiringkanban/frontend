@@ -24,6 +24,8 @@ module.exports = {
     'react/prop-types': 0,
     'react/function-component-definition': 0,
     'no-restricted-exports': 0,
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
     'prettier/prettier': [
       'error',
       {
