@@ -1,19 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const colors = {
   primary: '#696cff',
+  lightBlue: '#e7e7ff',
   white: '#fff',
   gray: '#697a8d',
   lightGray: '#d9dee3',
-  green: 'rgba(54, 159, 71, 1)',
+  green: '#d4f5c3',
   blue: 'rgba(10, 88, 132, 1)',
   darkBlue: 'rgba(41, 47, 76, 1)',
   black: 'rgba(0, 0, 0,)',
-  red: 'rgba(216, 67, 67, 1)',
+  red: '#ffc5bb',
   dark: '#233446',
 };
 
 export const status: { [key: string]: string } = {
-  primary: colors.primary,
+  primary: colors.lightBlue,
   success: colors.green,
   info: colors.blue,
   danger: colors.red,
