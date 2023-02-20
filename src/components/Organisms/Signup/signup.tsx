@@ -3,35 +3,27 @@ import { Form, Input, Button, Heading, Text, Link, FlexBox, Seperator } from '..
 import Box from '../../Atoms/Box';
 import StyledAuth from '../AuthStyle';
 import { addUser, UserT } from '../../../api/users';
+import Alert from '../../Atoms/Alert';
 
 const Signup = () => {
   const [data, setData] = useState<UserT>({ name: '', email: '', password: '' });
-  const [errors, setErros] = useState({ email: false, name: false, password: false });
+  const [status, setStatus] = useState({ msg: '', type: '' });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    setErros({ ...errors, [e.target.name]: false });
-  };
-
-  const formValidation = () => {
-    if (data.email === '') {
-      setErros({ ...errors, email: true });
-    }
-
-    if (data.name === '') {
-      setErros({ ...errors, name: true });
-    }
-
-    if (data.password === '') {
-      setErros({ ...errors, password: true });
-    }
-
-    return false;
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (formValidation()) return;
+    if (data.email === '' || data.name === '' || data.password === '') {
+      setStatus({ ...status, msg: 'Please fill out all required fields', type: 'danger' });
+      return;
+    }
     addUser(data);
+    setStatus({
+      ...status,
+      msg: 'Register success please check your inbox to verify your account',
+      type: 'success',
+    });
   };
 
   return (
@@ -46,24 +38,16 @@ const Signup = () => {
             name="name"
             placeholder="Full Name"
             onChange={handleChange}
-            status={errors.name ? 'danger' : ''}
           />
-          <Input
-            id="email"
-            type="text"
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-            status={errors.email ? 'danger' : ''}
-          />
+          <Input id="email" type="text" name="email" placeholder="Email" onChange={handleChange} />
           <Input
             id="password"
             type="password"
             name="password"
             placeholder="Password"
             onChange={handleChange}
-            status={errors.password ? 'danger' : ''}
           />
+          {status.type !== '' && <Alert message={status.msg} type={status.type} />}
           <Button size="large"> Sign up</Button>
         </Form>
         <FlexBox justify="space-between" alignItem="center">
