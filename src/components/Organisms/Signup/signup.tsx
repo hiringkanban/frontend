@@ -2,16 +2,36 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Heading, Text, Link, FlexBox, Seperator } from '../..';
 import Box from '../../Atoms/Box';
 import StyledAuth from '../AuthStyle';
+import { addUser, UserT } from '../../../api/users';
 
 const Signup = () => {
-  const [data, setData] = useState({});
-
+  const [data, setData] = useState<UserT>({ name: '', email: '', password: '' });
+  const [errors, setErros] = useState({ email: false, name: false, password: false });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
+    setErros({ ...errors, [e.target.name]: false });
+  };
+
+  const formValidation = () => {
+    if (data.email === '') {
+      setErros({ ...errors, email: true });
+    }
+
+    if (data.name === '') {
+      setErros({ ...errors, name: true });
+    }
+
+    if (data.password === '') {
+      setErros({ ...errors, password: true });
+    }
+
+    return false;
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (formValidation()) return;
+    addUser(data);
   };
 
   return (
@@ -23,17 +43,26 @@ const Signup = () => {
           <Input
             id="full_name"
             type="text"
-            name="full_name"
+            name="name"
             placeholder="Full Name"
             onChange={handleChange}
+            status={errors.name ? 'danger' : ''}
           />
-          <Input id="email" type="text" name="email" placeholder="Email" onChange={handleChange} />
+          <Input
+            id="email"
+            type="text"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            status={errors.email ? 'danger' : ''}
+          />
           <Input
             id="password"
             type="password"
             name="password"
             placeholder="Password"
             onChange={handleChange}
+            status={errors.password ? 'danger' : ''}
           />
           <Button size="large"> Sign up</Button>
         </Form>
