@@ -1,17 +1,38 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Form, Input, Button, Heading, Text, Link, FlexBox, Seperator } from '../..';
+import { auth } from '../../../api/users';
+import Alert from '../../Atoms/Alert';
 import Box from '../../Atoms/Box';
 import StyledAuth from '../AuthStyle';
+import { updateAuth } from './auth';
 
 const SignIn = () => {
-  const [data, setData] = useState({});
-
+  const [data, setData] = useState({ email: '', password: '' });
+  const [status, setStatus] = useState({ msg: '', type: '' });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (data.email === '' || data.password === '') {
+      setStatus({ ...status, msg: 'Please fill out all required fields', type: 'danger' });
+      return;
+    }
+
+    auth(data).then((result) => {
+      if (result.data.length === 0) {
+        setStatus({ ...status, msg: 'Email or password wrongs', type: 'danger' });
+        return;
+      }
+      localStorage.setItem('authenticated', 'token');
+      dispatch(updateAuth(true));
+      navigate('/admin');
+    });
   };
 
   return (
@@ -28,6 +49,7 @@ const SignIn = () => {
             placeholder="Password"
             onChange={handleChange}
           />
+          {status.type !== '' && <Alert message={status.msg} type={status.type} />}
           <Button size="large"> Sign in</Button>
         </Form>
         <FlexBox justify="space-between" alignItem="center">
