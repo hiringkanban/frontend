@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
+import { useDispatch } from 'react-redux';
 import Box from '../../Atoms/Box';
 import Container from '../../Atoms/Container';
 import SideBarContext from '../../../context';
@@ -8,10 +9,11 @@ import StyledAdminNav from './style';
 import Drodown from '../../Molecules/Drodown';
 import InlineList from '../../Molecules/InlineList/inlineList';
 import FlexBox from '../../Atoms/Flexbox/flexbox';
+import { updateAuth } from '../Signin/auth';
 
 const AdminNavBar = () => {
   const { setToggle } = useContext(SideBarContext);
-
+  const dispatch = useDispatch();
   const actions = [
     {
       name: 'Profile',
@@ -23,7 +25,10 @@ const AdminNavBar = () => {
     },
     {
       name: 'Logout',
-      onClick: () => {},
+      onClick: () => {
+        localStorage.setItem('authenticated', '');
+        dispatch(updateAuth(false));
+      },
     },
   ];
 
