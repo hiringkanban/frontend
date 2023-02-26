@@ -32,6 +32,15 @@ const cols: ColumnsT[] = [
     dataIndex: 'title',
     key: 'title',
     render: (_, { title }) => title,
+    sorted: (a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    },
   },
   {
     title: 'Skills',
@@ -53,6 +62,7 @@ const cols: ColumnsT[] = [
     title: 'Salary',
     dataIndex: 'salary',
     key: 'salaty',
+    sorted: (a, b) => a.salary - b.salary,
   },
   {
     title: 'Post date',
@@ -124,7 +134,7 @@ const Admin = () => {
     },
     {
       key: '1',
-      title: 'Backend Developer',
+      title: 'xackend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
       salary: 15000,
@@ -145,7 +155,7 @@ const Admin = () => {
     },
     {
       key: '1',
-      title: 'Backend Developer',
+      title: 'zackend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
       salary: 15000,
@@ -185,10 +195,10 @@ const Admin = () => {
     },
     {
       key: '1',
-      title: 'Backend Developer',
+      title: 'er',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
-      salary: 15000,
+      salary: 100,
       date: 'October 05, 2019',
       status: 'Active',
       actions: [],
@@ -198,14 +208,14 @@ const Admin = () => {
       title: 'Backend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
-      salary: 15000,
+      salary: 150,
       date: 'October 05, 2019',
       status: 'Active',
       actions: [],
     },
     {
       key: '1',
-      title: 'Backend Developer',
+      title: 'Zackend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
       salary: 15000,
@@ -215,7 +225,7 @@ const Admin = () => {
     },
     {
       key: '1',
-      title: 'Backend Developer',
+      title: 'oper',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
       salary: 15000,

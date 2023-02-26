@@ -48,8 +48,7 @@ export const TableRowItem = styled.tr`
 
 export const TableHead = styled.thead``;
 
-export const TableHeaderCell = styled.th`
-  text-align: left;
+export const StyledTableHeaderCell = styled.th`
   padding: 15px;
   font-size: 16px;
   font-weight: 400;
