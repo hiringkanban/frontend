@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import _ from 'lodash';
 import { DataSourceT, TableProps } from './type';
 import { StyledTable, TableWraper, TableHeader, TableFooter } from './style';
 import TableHead from './tableHead';
