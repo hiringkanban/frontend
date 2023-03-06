@@ -16,7 +16,7 @@ const Pagiantion: React.FC<PaginationProps> = (props) => {
 
   for (let i = start; i <= end; i += 1) {
     pagination.push(
-      <StyledPaginationLink active={i === current}>
+      <StyledPaginationLink active={i === current} key={i}>
         <a aria-hidden onClick={() => onChange(i)}>
           {i}
         </a>

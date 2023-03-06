@@ -5,15 +5,15 @@ import TableHeaderCell from './tableHeaderCell';
 
 interface HeaderProps {
   columns: ColumnsT[];
-  data: DataSourceT;
-  handleChange: Dispatch<SetStateAction<DataSourceT[]>>;
+  data: DataSourceT[];
+  sortData: Dispatch<SetStateAction<DataSourceT[]>>;
 }
 
-const TableHead = ({ columns, handleChange, data }: HeaderProps) => {
+const TableHead = ({ columns, data, sortData }: HeaderProps) => {
   return (
     <TableRowItem>
       {columns.map((column) => (
-        <TableHeaderCell key={column.key} column={column} data={data} handleChange={handleChange} />
+        <TableHeaderCell key={column.key} column={column} data={data} sortData={sortData} />
       ))}
     </TableRowItem>
   );

@@ -32,15 +32,7 @@ const cols: ColumnsT[] = [
     dataIndex: 'title',
     key: 'title',
     render: (_, { title }) => title,
-    sorted: (a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    },
+    sorted: (a, b) => a.title.length - b.title.length,
   },
   {
     title: 'Skills',
@@ -133,7 +125,7 @@ const Admin = () => {
       ],
     },
     {
-      key: '1',
+      key: '2',
       title: 'xackend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
@@ -154,7 +146,7 @@ const Admin = () => {
       ],
     },
     {
-      key: '1',
+      key: '3',
       title: 'zackend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
@@ -164,7 +156,7 @@ const Admin = () => {
       actions: [],
     },
     {
-      key: '1',
+      key: '4',
       title: 'Backend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
@@ -174,7 +166,7 @@ const Admin = () => {
       actions: [],
     },
     {
-      key: '1',
+      key: '5',
       title: 'Backend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
@@ -184,7 +176,7 @@ const Admin = () => {
       actions: [],
     },
     {
-      key: '1',
+      key: '6',
       title: 'Backend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
@@ -194,7 +186,7 @@ const Admin = () => {
       actions: [],
     },
     {
-      key: '1',
+      key: '7',
       title: 'er',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
@@ -204,7 +196,7 @@ const Admin = () => {
       actions: [],
     },
     {
-      key: '1',
+      key: '8',
       title: 'Backend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
@@ -214,7 +206,7 @@ const Admin = () => {
       actions: [],
     },
     {
-      key: '1',
+      key: '9',
       title: 'Zackend Developer',
       skills: ['PHP', 'C++'],
       experiences: '02 years',
@@ -224,7 +216,7 @@ const Admin = () => {
       actions: [],
     },
     {
-      key: '1',
+      key: '10',
       title: 'oper',
       skills: ['PHP', 'C++'],
       experiences: '02 years',

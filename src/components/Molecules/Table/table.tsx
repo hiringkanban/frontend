@@ -1,23 +1,24 @@
 import { useState } from 'react';
-import { TableProps } from './type';
+import _ from 'lodash';
+import { DataSourceT, TableProps } from './type';
 import { StyledTable, TableWraper, TableHeader, TableFooter } from './style';
-
 import TableHead from './tableHead';
 import TableRow from './tableRow';
 
 const Table: React.FC<TableProps> = (props) => {
   const { columns, dataSource, header, footer } = props;
+  const [data] = useState<DataSourceT[]>(dataSource);
+  const [sortedData, setSortedData] = useState<DataSourceT[]>(dataSource);
 
-  const [data, setData] = useState(dataSource);
   return (
     <TableWraper>
       <TableHeader>{header}</TableHeader>
       <StyledTable>
         <thead>
-          <TableHead columns={columns} data={data} handleChange={setData} />
+          <TableHead columns={columns} data={data} sortData={setSortedData} />
         </thead>
         <tbody>
-          <TableRow dataSource={data} columns={columns} />
+          <TableRow dataSource={sortedData} columns={columns} />
         </tbody>
       </StyledTable>
       <TableFooter>{footer}</TableFooter>

@@ -1,33 +1,47 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import styled from 'styled-components';
+import FlexBox from '../../Atoms/Flexbox/flexbox';
 import { StyledTableHeaderCell } from './style';
-import { DataSourceT, TableHeadCellProps } from './type';
+import { TableHeadCellProps, DataSourceT } from './type';
 
-const TableHeaderCell: React.FC<TableHeadCellProps> = ({ column, data, handleChange }) => {
+const TableHeaderCell: React.FC<TableHeadCellProps> = ({ column, data, sortData }) => {
   const [sort, setSort] = useState('');
-  const doSort = (datas: DataSourceT) => {
-    const newData = datas.sort((a: DataSourceT, b: DataSourceT) => column.sorted?.(a, b));
-    handleChange([...newData]);
+
+  const doSort = (datas: DataSourceT[]) => {
+    const newData = [...datas];
+    if (sort === '') {
+      setSort('up');
+      newData.sort((a, b) => column.sorted?.(a, b) as number);
+      sortData([...newData]);
+    } else if (sort === 'up') {
+      setSort('down');
+      newData.sort((a, b) => column.sorted?.(b, a) as number);
+      sortData([...newData]);
+    } else if (sort === 'down') {
+      setSort('');
+      sortData([...data]);
+    }
   };
+
   const issorted = column.sorted ? (
     // eslint-disable-next-line react/button-has-type
-    <FontAwesomeIcon icon={['fas', 'caret-up']} onClick={() => doSort(data)} />
+    <FlexBox direction="column">
+      <FontAwesomeIcon icon={['fas', 'caret-up']} style={sort === 'up' ? { color: 'red' } : {}} />
+      <FontAwesomeIcon
+        icon={['fas', 'caret-down']}
+        style={sort === 'down' ? { color: 'red' } : {}}
+      />
+    </FlexBox>
   ) : (
     ''
   );
 
-  const Wrap = styled.div`
-    display: flex;
-    justify-content: space-between;
-  `;
-
   return (
-    <StyledTableHeaderCell>
-      <Wrap>
+    <StyledTableHeaderCell onClick={() => doSort(data)} isSortable={column.sorted !== undefined}>
+      <FlexBox justify="space-between" alignItem="center">
         {column.title}
         {issorted}
-      </Wrap>
+      </FlexBox>
     </StyledTableHeaderCell>
   );
 };

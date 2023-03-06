@@ -5,7 +5,7 @@ export interface ColumnsT {
   key: string | number;
   dataIndex: string;
   render?: (column: ColumnsT, item: DataSourceT) => unknown;
-  sorted?: (a: DataSourceT, b: DataSourceT) => void;
+  sorted?: (a: DataSourceT, b: DataSourceT) => number;
 }
 
 export interface DataSourceT {
@@ -27,6 +27,6 @@ export interface RowCellprops {
 
 export interface TableHeadCellProps {
   column: ColumnsT;
-  data: DataSourceT;
-  handleChange: Dispatch<SetStateAction<DataSourceT[]>>;
+  data: DataSourceT[];
+  sortData: Dispatch<SetStateAction<DataSourceT[]>>;
 }
