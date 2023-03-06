@@ -1,15 +1,19 @@
-import { TableRowItem, TableHeaderCell } from './style';
-import { ColumnsT } from './type';
+import { Dispatch, SetStateAction } from 'react';
+import { TableRowItem } from './style';
+import { ColumnsT, DataSourceT } from './type';
+import TableHeaderCell from './tableHeaderCell';
 
 interface HeaderProps {
   columns: ColumnsT[];
+  data: DataSourceT[];
+  sortData: Dispatch<SetStateAction<DataSourceT[]>>;
 }
 
-const TableHead = ({ columns }: HeaderProps) => {
+const TableHead = ({ columns, data, sortData }: HeaderProps) => {
   return (
     <TableRowItem>
-      {columns.map(({ title, key }) => (
-        <TableHeaderCell key={key}>{title}</TableHeaderCell>
+      {columns.map((column) => (
+        <TableHeaderCell key={column.key} column={column} data={data} sortData={sortData} />
       ))}
     </TableRowItem>
   );

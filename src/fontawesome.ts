@@ -23,6 +23,8 @@ import {
   faArrowLeft,
   faUserTie,
   faLocationDot,
+  faCaretUp,
+  faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
@@ -48,5 +50,7 @@ library.add(
   faBell,
   faMoon,
   faClock,
-  faLocationDot
+  faLocationDot,
+  faCaretUp,
+  faCaretDown
 );

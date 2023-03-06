@@ -48,8 +48,7 @@ export const TableRowItem = styled.tr`
 
 export const TableHead = styled.thead``;
 
-export const TableHeaderCell = styled.th`
-  text-align: left;
+export const StyledTableHeaderCell = styled.th<{ isSortable: boolean }>`
   padding: 15px;
   font-size: 16px;
   font-weight: 400;
@@ -57,6 +56,7 @@ export const TableHeaderCell = styled.th`
     padding: 5px;
     font-size: 14px;
   }
+  ${(props) => (props.isSortable ? 'cursor: pointer' : '')};
 `;
 
 export const TableBody = styled.tbody``;
