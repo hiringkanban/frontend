@@ -32,7 +32,7 @@ const cols: ColumnsT[] = [
     dataIndex: 'title',
     key: 'title',
     render: (_, { title }) => title,
-    sorted: (a, b) => a.title.length - b.title.length,
+    sorter: (a, b) => a.title.length - b.title.lengthة
   },
   {
     title: 'Skills',
@@ -54,7 +54,7 @@ const cols: ColumnsT[] = [
     title: 'Salary',
     dataIndex: 'salary',
     key: 'salaty',
-    sorted: (a, b) => a.salary - b.salary,
+    sorter: (a, b) => a.salary - b.salary,
   },
   {
     title: 'Post date',
@@ -65,12 +65,22 @@ const cols: ColumnsT[] = [
     title: 'Status',
     dataIndex: 'status',
     key: 'status',
+    filters: [
+      {
+        text: 'title 01',
+        value: 'text 01',
+      },
+      {
+        text: 'title 02',
+        value: 'text 02',
+      },
+    ],
   },
   {
     title: 'Actions',
     dataIndex: 'actions',
     key: 'actions',
-    render: (_, { actions }) => <Drodown menu={actions} name="Actions" />,
+    render: (_, { actions }) => <Drodown menuItems={actions} name="Actions" />,
   },
 ];
 

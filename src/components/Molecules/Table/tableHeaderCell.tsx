@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import FlexBox from '../../Atoms/Flexbox/flexbox';
+import Drodown from '../Drodown';
 import { StyledTableHeaderCell } from './style';
 import { TableHeadCellProps, DataSourceT } from './type';
 
@@ -11,11 +12,11 @@ const TableHeaderCell: React.FC<TableHeadCellProps> = ({ column, data, sortData 
     const newData = [...datas];
     if (sort === '') {
       setSort('up');
-      newData.sort((a, b) => column.sorted?.(a, b) as number);
+      newData.sort((a, b) => column.sorter?.(a, b) as number);
       sortData([...newData]);
     } else if (sort === 'up') {
       setSort('down');
-      newData.sort((a, b) => column.sorted?.(b, a) as number);
+      newData.sort((a, b) => column.sorter?.(b, a) as number);
       sortData([...newData]);
     } else if (sort === 'down') {
       setSort('');
@@ -23,7 +24,11 @@ const TableHeaderCell: React.FC<TableHeadCellProps> = ({ column, data, sortData 
     }
   };
 
-  const issorted = column.sorted ? (
+  const actions = [
+    { id: 1, name: 'Profile', onClick: () => {} },
+    { id: 1, name: 'Settings', onClick: () => {} },
+  ];
+  const issorted = column.sorter ? (
     // eslint-disable-next-line react/button-has-type
     <FlexBox direction="column">
       <FontAwesomeIcon icon={['fas', 'caret-up']} style={sort === 'up' ? { color: 'red' } : {}} />
@@ -36,11 +41,14 @@ const TableHeaderCell: React.FC<TableHeadCellProps> = ({ column, data, sortData 
     ''
   );
 
+  const isFilter = column.filters ? <Drodown menuItems={actions} name="filter" /> : '';
+
   return (
-    <StyledTableHeaderCell onClick={() => doSort(data)} isSortable={column.sorted !== undefined}>
+    <StyledTableHeaderCell onClick={() => doSort(data)} isSortable={column.sorter !== undefined}>
       <FlexBox justify="space-between" alignItem="center">
         {column.title}
         {issorted}
+        {isFilter}
       </FlexBox>
     </StyledTableHeaderCell>
   );

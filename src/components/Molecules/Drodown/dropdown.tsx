@@ -2,10 +2,10 @@ import { useRef, useState } from 'react';
 import Button from '../../Atoms/Button';
 import Portal from '../../Atoms/Portal/portal';
 import DropdownOptions from './style';
-import { DropdownProps } from './type';
+import { DropdownProps, DropDownItemProps } from './type';
 import useOutsideClick from '../../../hooks/useOutsideClick';
 
-const Dropdown: React.FC<DropdownProps> = ({ menu, name }) => {
+const Dropdown: React.FC<DropdownProps> = ({ menuItems, name }) => {
   const { innerWidth } = window;
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -19,7 +19,7 @@ const Dropdown: React.FC<DropdownProps> = ({ menu, name }) => {
 
   useOutsideClick(dropdownRef, () => setOpen(false));
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (e: React.MouseEvent) => {
     setOpen(!open);
     if (buttonRef.current) {
       const coords = buttonRef.current.getBoundingClientRect();
@@ -30,6 +30,11 @@ const Dropdown: React.FC<DropdownProps> = ({ menu, name }) => {
         width: coords.width,
       });
     }
+  };
+
+  const handleElementClick = (e: React.MouseEvent, item: DropDownItemProps) => {
+    item.onClick();
+    setOpen(!open);
   };
 
   return (
@@ -45,8 +50,8 @@ const Dropdown: React.FC<DropdownProps> = ({ menu, name }) => {
             window={innerWidth}
           >
             <ul>
-              {menu.map((item) => (
-                <li key={item.id} onClick={() => item.onClick()} aria-hidden="true">
+              {menuItems.map((item) => (
+                <li key={item.id} onClick={(e) => handleElementClick(e, item)} aria-hidden="true">
                   {item.icon}
                   {item.name}
                 </li>

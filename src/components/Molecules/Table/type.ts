@@ -5,7 +5,9 @@ export interface ColumnsT {
   key: string | number;
   dataIndex: string;
   render?: (column: ColumnsT, item: DataSourceT) => unknown;
-  sorted?: (a: DataSourceT, b: DataSourceT) => number;
+  sorter?: (a: DataSourceT, b: DataSourceT) => number;
+  filters?: { text: string; value: string }[];
+  onFilter?: (value: string) => number;
 }
 
 export interface DataSourceT {

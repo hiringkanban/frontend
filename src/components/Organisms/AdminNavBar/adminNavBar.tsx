@@ -42,7 +42,7 @@ const AdminNavBar = () => {
     { id: 2, value: <FontAwesomeIcon icon={['far', 'moon']} />, href: '#' },
     {
       id: 3,
-      value: <Drodown menu={actions} name={<FontAwesomeIcon icon={['fas', 'user-tie']} />} />,
+      value: <Drodown menuItems={actions} name={<FontAwesomeIcon icon={['fas', 'user-tie']} />} />,
       href: '#',
     },
   ];
