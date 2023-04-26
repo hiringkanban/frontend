@@ -17,3 +17,4 @@ export { default as SignIn } from './Organisms/Signin';
 export { default as Signup } from './Organisms/Signup';
 export { default as SideBar } from './Organisms/Sidebar';
 export { default as Menu } from './Molecules/Menu';
+export { default as CheckBox } from './Atoms/Checkbox';

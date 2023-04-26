@@ -7,6 +7,7 @@ import Alert from '../../Atoms/Alert';
 import Box from '../../Atoms/Box';
 import StyledAuth from '../AuthStyle';
 import { updateAuth } from './auth';
+import CheckBox from '../../Atoms/Checkbox';
 
 const SignIn = () => {
   const [data, setData] = useState({ email: '', password: '' });
@@ -35,6 +36,10 @@ const SignIn = () => {
     });
   };
 
+  const handlechangeValues = (values) => {
+    console.log(values);
+  };
+
   return (
     <StyledAuth>
       <Box>
@@ -48,6 +53,14 @@ const SignIn = () => {
             name="password"
             placeholder="Password"
             onChange={handleChange}
+          />
+          <CheckBox name="remember" checked onChange={handleChange}>
+            {' '}
+            Remember{' '}
+          </CheckBox>
+          <CheckBox.Group
+            options={[{ name: 'item01' }, { name: 'item02' }]}
+            onChange={handlechangeValues}
           />
           {status.type !== '' && <Alert message={status.msg} type={status.type} />}
           <Button size="large"> Sign in</Button>
