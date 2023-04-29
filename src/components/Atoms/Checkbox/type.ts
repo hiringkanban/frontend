@@ -4,10 +4,12 @@ export interface CheckBoxProps {
   checked?: boolean;
   children?: React.ReactNode;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  Group: React.ReactInstance;
+}
+export interface CheckboxComposition {
+  Groupe?: React.ComponentType<GroupProps>;
 }
 
 export interface GroupProps {
-  onChange: (values: (string | number)[]) => (string | number)[];
   options: { name: string | number }[];
+  onChange?: (value: []) => [];
 }

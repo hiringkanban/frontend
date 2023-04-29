@@ -36,7 +36,7 @@ const SignIn = () => {
     });
   };
 
-  const handlechangeValues = (values) => {
+  const handlechangeValues = (values: any) => {
     console.log(values);
   };
 
@@ -54,11 +54,11 @@ const SignIn = () => {
             placeholder="Password"
             onChange={handleChange}
           />
-          <CheckBox name="remember" checked onChange={handleChange}>
+          <CheckBox name="remember" value="remember" checked onChange={handleChange}>
             {' '}
             Remember{' '}
           </CheckBox>
-          <CheckBox.Group
+          <CheckBox.Groupe
             options={[{ name: 'item01' }, { name: 'item02' }]}
             onChange={handlechangeValues}
           />

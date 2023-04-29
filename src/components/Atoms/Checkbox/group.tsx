@@ -1,9 +1,8 @@
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import CheckBox from './checkbox';
 import { GroupProps } from './type';
 
-const Group: React.FC<GroupProps> = ({ options }) => {
-  // const CardContext = createContext();
+const Group: React.FC<GroupProps> = ({ options }): JSX.Element => {
   const [values, setValue] = useState<(string | number)[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,14 +12,17 @@ const Group: React.FC<GroupProps> = ({ options }) => {
     } else {
       values.push(e.target.value);
     }
-    console.log(values);
   };
 
-  return options.map((checkbox) => (
-    <CheckBox key={checkbox.name} value={checkbox.name} onChange={handleChange}>
-      {checkbox.name}
-    </CheckBox>
-  ));
+  return (
+    <>
+      {options.map((checkbox) => (
+        <CheckBox key={checkbox.name} value={checkbox.name} onChange={handleChange}>
+          {checkbox.name}
+        </CheckBox>
+      ))}
+    </>
+  );
 };
 
 export default Group;
