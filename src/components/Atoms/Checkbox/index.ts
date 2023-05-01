@@ -1,6 +1,6 @@
 import Group from './group';
 import CheckBox from './checkbox';
 
-CheckBox.Groupe = Group;
+CheckBox.Group = Group;
 
 export default CheckBox;

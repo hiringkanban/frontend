@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-const StyledCheckBox = styled.input`
-  border: none;
+export const StyledLabelWrapper = styled.label`
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
 `;
-export default StyledCheckBox;
+
+export const StyledInputWrapper = styled.label`
+  padding: 10px;
+  cursor: pointer;
+`;

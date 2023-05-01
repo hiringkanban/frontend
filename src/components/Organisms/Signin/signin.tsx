@@ -10,7 +10,7 @@ import { updateAuth } from './auth';
 import CheckBox from '../../Atoms/Checkbox';
 
 const SignIn = () => {
-  const [data, setData] = useState({ email: '', password: '' });
+  const [data, setData] = useState({ email: '', password: '', remember: '' });
   const [status, setStatus] = useState({ msg: '', type: '' });
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -36,10 +36,6 @@ const SignIn = () => {
     });
   };
 
-  const handlechangeValues = (values: any) => {
-    console.log(values);
-  };
-
   return (
     <StyledAuth>
       <Box>
@@ -58,10 +54,6 @@ const SignIn = () => {
             {' '}
             Remember{' '}
           </CheckBox>
-          <CheckBox.Groupe
-            options={[{ name: 'item01' }, { name: 'item02' }]}
-            onChange={handlechangeValues}
-          />
           {status.type !== '' && <Alert message={status.msg} type={status.type} />}
           <Button size="large"> Sign in</Button>
         </Form>
