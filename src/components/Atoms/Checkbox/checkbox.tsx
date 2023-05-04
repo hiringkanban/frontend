@@ -6,13 +6,13 @@ const CheckBox: React.FC<CheckBoxProps> & CheckBoxSubComponent = ({
   children,
   name,
   value,
-  checked = false,
   disabled = false,
+  defaultChecked = false,
   onChange,
 }) => {
-  const [isChecked, setChecked] = useState(checked);
+  const [checked, setChecked] = useState<boolean>(defaultChecked);
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(!isChecked);
+    setChecked(!checked);
     onChange(e);
   };
 
@@ -21,10 +21,10 @@ const CheckBox: React.FC<CheckBoxProps> & CheckBoxSubComponent = ({
       <StyledInputWrapper>
         <input
           type="checkbox"
-          checked={isChecked}
+          checked={checked}
           name={name}
           value={value}
-          onChange={(e) => handleCheck(e)}
+          onChange={handleCheck}
           disabled={disabled}
         />
         {children}

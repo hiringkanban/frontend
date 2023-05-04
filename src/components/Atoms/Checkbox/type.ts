@@ -1,7 +1,7 @@
 export interface CheckBoxProps {
   name?: string;
   value?: string | number;
-  checked?: boolean;
+  defaultChecked?: boolean;
   disabled?: boolean;
   children?: React.ReactNode;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -14,6 +14,7 @@ export interface CheckBoxSubComponent {
 export interface GroupProps {
   options: CheckboxValueType[];
   onChange: (value: CheckboxGroupValues) => void;
+  defaultValue?: (string | number)[];
 }
 
 export type CheckboxGroupValues = (string | number)[];
