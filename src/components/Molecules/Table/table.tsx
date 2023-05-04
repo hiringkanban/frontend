@@ -14,7 +14,7 @@ const Table: React.FC<TableProps> = (props) => {
       <TableHeader>{header}</TableHeader>
       <StyledTable>
         <thead>
-          <TableHead columns={columns} data={data} sortData={setSortedData} />
+          <TableHead columns={columns} data={data} setData={setSortedData} />
         </thead>
         <tbody>
           <TableRow dataSource={sortedData} columns={columns} />

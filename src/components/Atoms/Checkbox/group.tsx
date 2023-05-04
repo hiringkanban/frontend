@@ -2,8 +2,8 @@ import { useState } from 'react';
 import CheckBox from './checkbox';
 import { GroupProps, CheckboxGroupValues } from './type';
 
-const Group: React.FC<GroupProps> = ({ options, onChange }): JSX.Element => {
-  const [values, setValue] = useState<CheckboxGroupValues>([]);
+const Group: React.FC<GroupProps> = ({ options, onChange, defaultValue = [] }): JSX.Element => {
+  const [values, setValue] = useState<CheckboxGroupValues>(defaultValue);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.checked) {
@@ -12,14 +12,18 @@ const Group: React.FC<GroupProps> = ({ options, onChange }): JSX.Element => {
     } else {
       values.push(e.target.value);
     }
-    setValue(values);
-    onChange(values);
+    onChange([...values]);
   };
 
   return (
     <>
       {options.map((checkbox) => (
-        <CheckBox key={checkbox.name} value={checkbox.name} onChange={handleChange}>
+        <CheckBox
+          key={checkbox.name}
+          value={checkbox.name}
+          defaultChecked={defaultValue?.includes(checkbox.name)}
+          onChange={handleChange}
+        >
           {checkbox.name}
         </CheckBox>
       ))}

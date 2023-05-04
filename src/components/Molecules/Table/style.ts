@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontWeight } from '../../../styles/styleGuide';
+import { borderRadius, fontWeight } from '../../../styles/styleGuide';
 
 export const TableWraper = styled.div`
   overflow-x: 'auto';
@@ -60,3 +60,21 @@ export const StyledTableHeaderCell = styled.th<{ isSortable: boolean }>`
 `;
 
 export const TableBody = styled.tbody``;
+export type FilterT = {
+  coords: { x: number; y: number; height: number; width: number };
+  window: number;
+};
+
+export const StyledFilterBody = styled.div<FilterT>`
+  display: flex;
+  padding: 15px;
+  position: absolute;
+  top: ${(props) => props.coords.y + props.coords.height + 10}px;
+  ${(props) =>
+    props.coords.x + 150 > props.window
+      ? `right:${props.window - (props.coords.x + props.coords.width)}px;`
+      : `left: ${props?.coords?.x}px;`}
+  box-shadow: 0 6px 16px 0 rgb(0 0 0 / 8%);
+  background-color: #fff;
+  border-radius: ${borderRadius};
+`;

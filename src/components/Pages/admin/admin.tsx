@@ -49,6 +49,17 @@ const cols: ColumnsT[] = [
     title: 'Experiences',
     dataIndex: 'experiences',
     key: 'experiences',
+    filters: [
+      {
+        id: 'item01',
+        name: '5years',
+      },
+      {
+        id: 'item02',
+        name: '2years',
+      },
+    ],
+    onFilter: (value: string[], record) => record.experiences.indexOf(value) === 0,
   },
   {
     title: 'Salary',
@@ -102,7 +113,7 @@ const Admin = () => {
       key: '1',
       title: 'Team Lead',
       skills: ['Java', 'C++'],
-      experiences: '5 years',
+      experiences: '5years',
       salary: 15000,
       date: 'October 05, 2019',
       status: 'Active',
@@ -149,7 +160,7 @@ const Admin = () => {
       key: '3',
       title: 'zackend Developer',
       skills: ['PHP', 'C++'],
-      experiences: '02 years',
+      experiences: '2years',
       salary: 15000,
       date: 'October 05, 2019',
       status: 'Active',

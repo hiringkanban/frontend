@@ -6,7 +6,14 @@ export interface ColumnsT {
   dataIndex: string;
   render?: (column: ColumnsT, item: DataSourceT) => unknown;
   sorted?: (a: DataSourceT, b: DataSourceT) => number;
+  filters?: TableDataFilterT;
+  onFilter?: (value: string[], record: DataSourceT) => boolean;
 }
+
+export type TableDataFilterT = {
+  name: string | number;
+  id: string | number;
+}[];
 
 export interface DataSourceT {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,5 +35,12 @@ export interface RowCellprops {
 export interface TableHeadCellProps {
   column: ColumnsT;
   data: DataSourceT[];
-  sortData: Dispatch<SetStateAction<DataSourceT[]>>;
+  updateData: Dispatch<SetStateAction<DataSourceT[]>>;
+}
+
+export interface TableFilterProps {
+  options: TableDataFilterT;
+  data: DataSourceT[];
+  column: ColumnsT;
+  setData: Dispatch<SetStateAction<DataSourceT[]>>;
 }
